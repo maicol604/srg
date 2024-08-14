@@ -487,7 +487,7 @@ class Detail extends PureComponent {
         style={styles.dropdownStyle}
       >
         <View style={[styles.dropdownLeftStyle, {}]}>
-          <Text style={{ fontSize: 13, color: text }}>
+          <Text style={{ fontSize: 14, color: text, width: width * 0.75, paddingLeft: 5}}>
             {attribute.name.toUpperCase()}
           </Text>
         </View>
@@ -569,7 +569,7 @@ class Detail extends PureComponent {
       product,
       cartItems,
       theme: {
-        colors: { background, text, lineColor },
+        colors: { background, text, lineColor, primary },
         dark,
       },
       currency,
@@ -798,9 +798,9 @@ const mapStateToProps = state => {
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const CartRedux = require('@redux/CartRedux');
-  const WishListRedux = require('@redux/WishListRedux');
-  const ProductRedux = require('@redux/ProductRedux');
+  const CartRedux = require('@app/redux-store/CartRedux');
+  const WishListRedux = require('@app/redux-store/WishListRedux');
+  const ProductRedux = require('@app/redux-store/ProductRedux');
   return {
     ...ownProps,
     ...stateProps,

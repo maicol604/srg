@@ -17,16 +17,16 @@ class Item extends PureComponent {
       selected,
       onPress,
       theme: {
-        colors: { background, text },
+        colors: { background, text, category, primary },
       },
     } = this.props;
 
     return (
       <TouchableOpacity
-        style={[styles.container, selected && styles.selected(background)]}
+        style={[styles.container, selected && styles.selected(category)]}
         onPress={onPress}
       >
-        <Text style={[styles.text, selected && styles.selectedText(text)]}>
+        <Text style={[styles.text, selected && styles.selectedText(primary)]}>
           {item.name}
         </Text>
       </TouchableOpacity>

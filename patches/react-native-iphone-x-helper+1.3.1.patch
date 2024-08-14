@@ -1,0 +1,28 @@
+diff --git a/node_modules/react-native-iphone-x-helper/index.js b/node_modules/react-native-iphone-x-helper/index.js
+index afd571f..9f979fc 100644
+--- a/node_modules/react-native-iphone-x-helper/index.js
++++ b/node_modules/react-native-iphone-x-helper/index.js
+@@ -2,15 +2,19 @@ import { Dimensions, Platform, StatusBar } from 'react-native';
+ 
+ export function isIphoneX() {
+     const dimen = Dimensions.get('window');
++    if (Platform.OS !== 'ios') {
++        return false;
++    }
++
+     return (
+         Platform.OS === 'ios' &&
+         !Platform.isPad &&
+         !Platform.isTVOS &&
+         ((dimen.height === 780 || dimen.width === 780)
+-          || (dimen.height === 812 || dimen.width === 812)
+-          || (dimen.height === 844 || dimen.width === 844)
+-          || (dimen.height === 896 || dimen.width === 896)
+-          || (dimen.height === 926 || dimen.width === 926))
++            || (dimen.height === 812 || dimen.width === 812)
++            || (dimen.height === 844 || dimen.width === 844)
++            || (dimen.height === 896 || dimen.width === 896)
++            || (dimen.height === 926 || dimen.width === 926))
+     );
+ }
+ 

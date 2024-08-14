@@ -5,8 +5,8 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 
 import { log } from '@app/Omni';
-import { actions as BrandsActions } from '@redux/BrandsRedux';
-import { actions as TagActions } from '@redux/TagRedux';
+import { actions as BrandsActions } from '@app/redux-store/BrandsRedux';
+import { actions as TagActions } from '@app/redux-store/TagRedux';
 import Item from './Item';
 
 class Content extends React.PureComponent {

@@ -21,7 +21,7 @@ const Styles = {
 
   app: {
     flexGrow: 1,
-    backgroundColor: isIphoneX() ? '#FFF' : '#000',
+    backgroundColor: isIphoneX() ? '#000' : '#000',
     paddingTop: Device.ToolbarHeight,
   },
   FontSize: {
@@ -71,8 +71,8 @@ Styles.Common = {
             ? -10
             : -8
           : isIphoneX()
-          ? -5
-          : 0,
+            ? -5
+            : 0,
       },
       android: {
         top: 0,
@@ -129,7 +129,7 @@ Styles.Common = {
 
   logo: {
     width: Platform.OS === 'ios' ? 180 : 200,
-    height: Platform.OS === 'ios' ? 30 : 30,
+    height: Platform.OS === 'ios' ? 40 : 40,
     resizeMode: 'contain',
     ...Platform.select({
       ios: {
@@ -156,8 +156,8 @@ Styles.Common = {
             ? 35
             : 50
           : isIphoneX()
-          ? 35
-          : 45,
+            ? 35
+            : 45,
       },
       ...ifIphoneX(
         {
@@ -197,10 +197,10 @@ Styles.Common = {
     color: Config.Theme.isDark
       ? themes.dark.colors.text
       : themes.dark.colors.text,
-    fontSize: 16,
+    fontSize: 17,
     height: 40,
     textAlign: 'center',
-    fontFamily: Constants.fontFamily,
+    fontFamily: Constants.fontFamilyBold,
     alignSelf: 'center',
     ...Platform.select({
       ios: {
@@ -223,15 +223,15 @@ Styles.Common = {
         ? 40
         : 15
       : isIphoneX()
-      ? 25
-      : 5,
+        ? 25
+        : 5,
   },
   toolbarIcon: {
     width: 16,
     height: 16,
     resizeMode: 'contain',
 
-    // marginRight: 18,
+    marginRight: 18,
     // marginBottom: 12,
     marginLeft: 18,
     opacity: 0.8,
@@ -242,8 +242,8 @@ Styles.Common = {
             ? -10
             : -8
           : isIphoneX()
-          ? -5
-          : 0,
+            ? -5
+            : 0,
       },
       android: {
         top: 0,
@@ -266,8 +266,8 @@ Styles.Common = {
             ? -20
             : -3
           : isIphoneX()
-          ? -15
-          : -3,
+            ? -15
+            : -3,
       },
       android: {
         backgroundColor: 'transparent',

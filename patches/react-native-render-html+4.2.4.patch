@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-render-html/src/HTMLStyles.js b/node_modules/react-native-render-html/src/HTMLStyles.js
+index 74b6c1c..4f9eb1b 100644
+--- a/node_modules/react-native-render-html/src/HTMLStyles.js
++++ b/node_modules/react-native-render-html/src/HTMLStyles.js
+@@ -199,7 +199,7 @@ function cssToRNStyle(
+         key
+           .split("-")
+           .map((item, index) =>
+-            index === 0 ? item : item[0].toUpperCase() + item.substr(1)
++            index === 0 ? item : item[0] + item.substr(1)
+           )
+           .join(""),
+         value,

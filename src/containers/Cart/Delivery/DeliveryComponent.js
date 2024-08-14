@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import * as AddressRedux from '@redux/AddressRedux';
+import * as AddressRedux from '@app/redux-store/AddressRedux';
 
 import { Languages, withTheme } from '@common';
 import css from '@cart/styles';

@@ -14,7 +14,7 @@ import _Validate from './utils/Validate';
 import _BlockTimer from './utils/BlockTimer';
 import _FacebookAPI from './services/FacebookAPI';
 
-// const { actions: SideMenuActions } = require('@redux/SideMenuRedux')
+// const { actions: SideMenuActions } = require('@app/redux-store/SideMenuRedux')
 
 export const Icon = _Icon;
 export const IconIO = _IconIO;

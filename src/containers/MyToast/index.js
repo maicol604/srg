@@ -92,7 +92,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  const { actions } = require('@redux/ToastRedux');
+  const { actions } = require('@app/redux-store/ToastRedux');
   return {
     addToast: (msg, key) => dispatch(actions.addToast(msg, key)),
     removeToast: msg => dispatch(actions.removeToast(msg)),

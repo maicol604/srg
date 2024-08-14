@@ -15,7 +15,7 @@ import { Languages, withTheme } from '@common';
 import { Timer, toast, BlockTimer } from '@app/Omni';
 import LogoSpinner from '@components/LogoSpinner';
 import Empty from '@components/Empty';
-import { DisplayMode } from '@redux/CategoryRedux';
+import { DisplayMode } from '@app/redux-store/CategoryRedux';
 import FilterPicker from '@containers/FilterPicker';
 import ProductRow from './ProductRow';
 import ControlBar from './ControlBar';
@@ -287,8 +287,8 @@ const mapStateToProps = state => {
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { netInfo } = stateProps;
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/ProductRedux');
-  const WishListRedux = require('@redux/WishListRedux');
+  const { actions } = require('@app/redux-store/ProductRedux');
+  const WishListRedux = require('@app/redux-store/WishListRedux');
   return {
     ...ownProps,
     ...stateProps,

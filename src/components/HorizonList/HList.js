@@ -153,7 +153,7 @@ class HorizonList extends PureComponent {
     const { VerticalLayout } = AppConfig;
     const list =
       typeof collection !== 'undefined' &&
-      typeof collection.list !== 'undefined'
+        typeof collection.list !== 'undefined'
         ? collection.list
         : this.defaultList;
     const isPaging = !!config.paging;
@@ -176,9 +176,12 @@ class HorizonList extends PureComponent {
         );
       case Constants.Layout.BannerSlider:
         return (
-          <BannerSlider data={list} onViewPost={this.onViewProductScreen} />
+          <BannerSlider data={list} config={config} viewAll={this._viewAll} onViewPost={this.onViewProductScreen} />
         );
-
+      case Constants.Layout.BannerSliderImage:
+        return (
+          <BannerSlider data={Config.HomeCategoriesBanner} config={config} viewAll={this.showProductsByCategory} />
+        );
       case Constants.Layout.BannerImage:
         return (
           <BannerImage

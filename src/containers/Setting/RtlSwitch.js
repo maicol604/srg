@@ -66,7 +66,7 @@ const mapStateToProps = ({ language }) => ({ rtl: language.rtl });
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/LangRedux');
+  const { actions } = require('@app/redux-store/LangRedux');
   return {
     ...ownProps,
     ...stateProps,

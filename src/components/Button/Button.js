@@ -11,7 +11,7 @@ import {
   ActivityIndicator,
   I18nManager,
 } from 'react-native';
-import { Color } from '@common';
+import { Color, Constants } from '@common';
 
 const Button = props => {
   if (props.type === 'border') {
@@ -56,7 +56,7 @@ const TextButton = props => (
           ]}
         />
       )}
-      <Text {...props} style={[styles.text, props.textStyle]}>
+      <Text style={[styles.text, props.textStyle]}>
         {props.text}
       </Text>
       {props.isLoading && (
@@ -92,7 +92,7 @@ const BorderButton = props => (
           ]}
         />
       )}
-      <Text {...props} style={[styles.text, props.textStyle]}>
+      <Text style={[styles.text, props.textStyle]}>
         {props.text}
       </Text>
       {props.isLoading && (
@@ -128,7 +128,7 @@ const StandardButton = props => (
           ]}
         />
       )}
-      <Text {...props} style={[styles.text, props.textStyle]}>
+      <Text style={[styles.text, props.textStyle]}>
         {props.text}
       </Text>
       {props.isLoading && (
@@ -212,7 +212,6 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     fontSize: 17,
-    marginTop: 3,
   },
   borderButton: {
     height: 25,

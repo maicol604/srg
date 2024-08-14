@@ -105,11 +105,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   headerRightText: {
-    fontSize: 11,
+    fontSize: 12,
     marginRight: 0,
     marginTop: 0,
     color: '#666',
-    fontFamily: Constants.fontFamily,
+    fontFamily: Constants.fontFamilyBold,
   },
   icon: {
     marginRight: 8,
@@ -120,7 +120,7 @@ export default StyleSheet.create({
   tagHeader: {
     fontSize: 18,
     color: '#666',
-    letterSpacing: 2,
+    letterSpacing: 1,
     fontFamily: Constants.fontHeader,
   },
 

@@ -1,0 +1,15 @@
+diff --git a/node_modules/react-native-fluid-slider/src/ogSlider.js b/node_modules/react-native-fluid-slider/src/ogSlider.js
+index e2b595c..7a523f5 100644
+--- a/node_modules/react-native-fluid-slider/src/ogSlider.js
++++ b/node_modules/react-native-fluid-slider/src/ogSlider.js
+@@ -146,7 +146,9 @@ export default class Slider extends PureComponent {
+     /**
+      * Sets an image for the thumb.
+      */
+-    thumbImage: Image.propTypes.source,
++    thumbImage: PropTypes.shape({
++      uri: PropTypes.string,
++    }),
+     
+     /**
+      * Set this to true to visually see the thumb touch rect in green.

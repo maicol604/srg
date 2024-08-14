@@ -8,7 +8,7 @@ import { Styles, Color, withTheme, Tools, Images } from '@common';
 import { getProductImage } from '@app/Omni';
 import { Rating, ImageCache, Text } from '@components';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DisplayMode } from '@redux/CategoryRedux';
+import { DisplayMode } from '@app/redux-store/CategoryRedux';
 import styles from './styles';
 
 class ProductRow extends PureComponent {

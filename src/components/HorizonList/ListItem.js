@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
 import { makeGetCollections } from '@selectors/LayoutSelector';
-import * as LayoutRedux from '@redux/LayoutRedux';
-import * as NewsRedux from '@redux/NewsRedux';
-import * as CategoryRedux from '@redux/CategoryRedux';
+import * as LayoutRedux from '@app/redux-store/LayoutRedux';
+import * as NewsRedux from '@app/redux-store/NewsRedux';
+import * as CategoryRedux from '@app/redux-store/CategoryRedux';
 
 import HList from './HList';
 

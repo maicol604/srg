@@ -88,7 +88,7 @@ WordpressAPI.prototype.getCheckoutUrl = async function (data, callback) {
   })
     .then(response => response.json())
     .then(code => {
-      callback(`${this.url}/checkout?code=${code}&mobile=true`);
+      callback(`${this.url}/finalizar-compra?code=${code}&mobile=true`);
     })
     .catch(error => {
       alert(error);

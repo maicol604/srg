@@ -1,25 +1,29 @@
 /** @format */
 
+import { Constants } from '@common';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    paddingVertical: 25,
+    paddingVertical: 15,
     paddingHorizontal: 8,
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10
   },
   text: {
-    fontSize: 12,
-    color: '#fff',
-    textTransform: 'uppercase',
+    fontSize: 14,
+    fontFamily: Constants.fontFamily,
+    color: 'rgb(95,95,95)',
+    textAlign:'center'
   },
   selected: background => ({
     backgroundColor: background,
   }),
   selectedText: text => ({
-    fontWeight: 'bold',
+    fontFamily: Constants.fontFamily,
     color: text,
   }),
 });

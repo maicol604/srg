@@ -41,7 +41,7 @@ export default class Image extends React.PureComponent<ImageProps, ImageState> {
         this.load(this.props);
     }
 
-    componentWillReceiveProps(props: ImageProps) {
+    UNSAFE_componentWillReceiveProps(props: ImageProps) {
         this.load(props);
     }
 

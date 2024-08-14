@@ -1,5 +1,6 @@
 /** @format */
 
+import { Constants } from '@common';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -16,12 +17,13 @@ export default StyleSheet.create({
   leftText: {
     fontSize: 16,
     color: '#9B9B9B',
+    fontFamily: Constants.fontFamily
   },
   rightText: textColor => ({
     fontSize: 16,
     color: textColor,
-    fontWeight: '300',
     alignSelf: 'flex-start',
+    fontFamily: Constants.fontFamilyBold
   }),
   rightContainer: {
     flex: 1,

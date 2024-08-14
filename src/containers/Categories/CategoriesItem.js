@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableScale } from '@components';
 import { Images } from '@common';
 import { BlockTimer } from '@app/Omni';
-import * as CategoryRedux from '@redux/CategoryRedux';
+import * as CategoryRedux from '@app/redux-store/CategoryRedux';
 
 import styles from './styles';
 

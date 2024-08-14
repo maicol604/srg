@@ -6,7 +6,7 @@ import { Animated, FlatList, RefreshControl } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Config, withTheme } from '@common';
-import * as LayoutRedux from '@redux/LayoutRedux';
+import * as LayoutRedux from '@app/redux-store/LayoutRedux';
 
 import Header from './Header';
 import ListItem from './ListItem';
@@ -86,7 +86,7 @@ const HorizonList = React.memo(
         }}
         scrollEventThrottle={1}
         refreshing={isFetching}
-        contentContainerStyle={styles.mainList}
+        // contentContainerStyle={styles.mainList}
         {...{ onScroll }}
         refreshControl={
           <RefreshControl

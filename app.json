@@ -13,8 +13,15 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
+      "bundleIdentifier": "com.app.srgstore",
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
@@ -22,14 +29,12 @@
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.mrluyx.expo44"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+      "package": "com.mrluyx.expo44",
+      "versionCode": 1
     },
     "extra": {
       "eas": {
-        "projectId": "e285b3c1-622f-4c89-8432-530473dd8fec"
+        "projectId": "1ac689c6-03b0-4295-91d4-a193f7ca0143"
       }
     }
   }

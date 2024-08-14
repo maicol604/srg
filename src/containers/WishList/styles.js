@@ -46,8 +46,8 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 10,
     marginBottom: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingLeft: 25,
+    paddingRight: 25,
     flexDirection: 'row',
   },
   button: {
@@ -96,7 +96,6 @@ export default StyleSheet.create({
   title: {
     marginTop: 20,
     fontSize: 24,
-    fontWeight: 'bold',
     textAlign: 'center',
     width: 230,
     lineHeight: 40,
@@ -108,8 +107,8 @@ export default StyleSheet.create({
     textAlign: 'center',
     color: '#758692',
     width: 230,
-    marginTop: 10,
-    lineHeight: 25,
+    marginTop: 0,
+    lineHeight: 16,
     fontFamily: Constants.fontFamily,
   },
 

@@ -7,11 +7,12 @@ import {
   Platform,
   StyleSheet,
   TouchableWithoutFeedback,
+  Text,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { connect } from 'react-redux';
 
-import { Device, withTheme } from '@common';
+import { Device, withTheme, Color } from '@common';
 import { ROUTER } from '@app/navigation/constants';
 
 const styles = StyleSheet.create({
@@ -88,7 +89,7 @@ class TabBar extends PureComponent {
         {routes &&
           routes.map((route, index) => {
             const focused = index === state.index;
-            const tintColor = focused ? activeTintColor : inactiveTintColor;
+            const tintColor = focused ? Color.tabbarTint : inactiveTintColor;
 
             if (ignoreScreen.indexOf(route.name) > -1) {
               return <View key={route.key} />;

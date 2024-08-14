@@ -136,7 +136,7 @@ class Search extends PureComponent {
         {...{ onScroll }}
         ListEmptyComponent={() => {
           return (
-            <Text style={{ textAlign: 'center' }}>
+            <Text style={{ textAlign: 'center', fontFamily: Constants.fontFamily }}>
               {Languages.NoResultError}
             </Text>
           );
@@ -214,7 +214,7 @@ const mapStateToProps = ({ products }) => ({
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/ProductRedux');
+  const { actions } = require('@app/redux-store/ProductRedux');
   return {
     ...ownProps,
     ...stateProps,

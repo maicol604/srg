@@ -83,6 +83,7 @@ class PostList extends PureComponent {
         onViewPost={() => this.onRowClickHandle(item, this.props.type)}
         layout={layout}
         currency={this.props.currency}
+        index={index}
       />
     );
   };
@@ -173,7 +174,7 @@ class PostList extends PureComponent {
     return (
       <FlatList
         overScrollMode="never"
-        style={{ backgroundColor: background }}
+        // style={{ backgroundColor: background }}
         contentContainerStyle={[
           styles.flatlist,
           { backgroundColor: background },
@@ -210,8 +211,8 @@ const mapStateToProps = ({ products, news, page, currency }, ownProps) => {
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { dispatch } = dispatchProps;
-  const Product = require('@redux/ProductRedux');
-  const News = require('@redux/NewsRedux');
+  const Product = require('@app/redux-store/ProductRedux');
+  const News = require('@app/redux-store/NewsRedux');
 
   return {
     ...ownProps,

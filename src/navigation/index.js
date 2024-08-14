@@ -90,7 +90,10 @@ const HomeStack = withTheme(({ theme }) => {
       screenOptions={{
         gesturesEnabled: true,
         // gestureResponseDistance: { horizontal: width / 2 },
-        headerShown: false,
+        headerShown: true,
+        headerStyle: {
+          height: 100, // Set your desired height here
+        },
       }}
     >
       <HomeNavigator.Screen

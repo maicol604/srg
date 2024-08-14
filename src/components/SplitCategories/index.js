@@ -37,7 +37,7 @@ class SplitCategories extends Component {
       products,
       isFetching,
       theme: {
-        colors: { background },
+        colors: { background, primary },
       },
     } = this.props;
 
@@ -50,7 +50,7 @@ class SplitCategories extends Component {
         <View style={styles.content}>
           {isFetching && (
             <View style={styles.loading}>
-              <ActivityIndicator size="large" />
+              <ActivityIndicator size="large" color={primary} />
             </View>
           )}
           {!isFetching && (
@@ -123,9 +123,9 @@ const mapStateToProps = state => {
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { netInfo } = stateProps;
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/CategoryRedux');
+  const { actions } = require('@app/redux-store/CategoryRedux');
   const { fetchProductsByCategoryId, clearProducts } =
-    require('@redux/ProductRedux').actions;
+    require('@app/redux-store/ProductRedux').actions;
   return {
     ...ownProps,
     ...stateProps,

@@ -66,7 +66,7 @@ const mapStateToProps = state => {
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { netInfo } = stateProps;
   const { dispatch } = dispatchProps;
-  const { actions } = require('./../../redux/ProductRedux');
+  const { actions } = require('./../../redux-store/ProductRedux');
 
   return {
     ...ownProps,

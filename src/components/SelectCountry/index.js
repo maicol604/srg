@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import CountryPicker from 'react-native-country-picker-modal';
 
-import { Languages } from '@common';
+import { Constants, Languages } from '@common';
 
 const SelectCountry = React.memo(props => {
   return (
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   },
   label: {
     marginBottom: 3,
+    fontFamily: Constants.fontFamilyBold
   },
   viewInput: {
     height: 40,
@@ -43,10 +44,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#F6F7F9',
     justifyContent: 'center',
+    fontFamily: Constants.fontFamily
   },
   error: {
     color: 'red',
     marginLeft: 3,
+    fontFamily: Constants.fontFamily
   },
 });
 

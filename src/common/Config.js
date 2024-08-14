@@ -31,22 +31,55 @@ export default {
     enable: true,
   },
 
+  HomeCategoriesBanner: [
+    {
+      height: 160,
+      category: 298,
+      label: "Cestas Gourmet",
+      imageMode: "cover",
+      type: "bannerImage",
+      title: "What is Lorem Ipsum?",
+      description: "Lorem Ipsum is simply dummy text",
+      images: [{ "src": "https://saborruralgalicia.com/wp-content/uploads/2023/01/slide-cestas.jpg" }]
+    },
+    {
+      height: 160,
+      category: 41,
+      label: "Drinks",
+      imageMode: "cover",
+      type: "bannerImage",
+      title: "What is Lorem Ipsum?",
+      description: "Lorem Ipsum is simply dummy text",
+      images: [{ src: "https://saborruralgalicia.com/wp-content/uploads/2024/01/Black-Drink-Up-Facebook-Event-Cover-1536x864.png" }]
+    },
+    {
+      height: 160,
+      category: 43,
+      label: "Cake Shop",
+      imageMode: "cover",
+      type: "bannerImage",
+      title: "What is Lorem Ipsum?",
+      description: "Lorem Ipsum is simply dummy text",
+      images: [{ src: "https://saborrural.es/wp-content/uploads/2021/05/banner-tiendasr.png" }]
+    }
+  ],
+
   HomeCategories: [
     {
       category: 315,
-      image: require('@images/categories_icon/ic_shorts.png'),
+      image: require('@images/categories_icon/ic_vino.png'),
       colors: ['#ad261c', '#ead4d3'],
       label: 'Vinos',
     },
     {
       category: 21,
-      image: require('@images/categories_icon/ic_tshirt.png'),
+      image: require('@images/categories_icon/ic_deno.png'),
       colors: ['#0f7e75', '#cfe6e4'],
       label: 'Denominación de origen',
     },
     {
       category: 208,
-      image: require('@images/categories_icon/ic_panties.png'),
+      image: require('@images/categories_icon/ic-productores.png'),
       colors: ['#878033', '#e5e3d2'],
       label: 'Productores',
     },
@@ -106,6 +139,7 @@ export default {
     cod: require('@images/payment_logo/cash_on_delivery.png'),
     paypal: require('@images/payment_logo/PayPal.png'),
     stripe: require('@images/payment_logo/stripe.png'),
+    cecabank_gateway: require('@images/payment_logo/cecabank_gateway.png'),
   },
 
   /**
@@ -145,7 +179,7 @@ export default {
   appFacebookId: '501847534057136',
   CustomPages: { contact_id: 10941 },
   WebPages: { marketing: 'http://inspireui.com' },
-
+ 
   intro: [
     {
       key: 'page1',
@@ -153,7 +187,7 @@ export default {
       text: '',
       icon: false,
       colors: ['#212121', '#902726'],
-      image:  require('@images/logosrgal-w.png'),
+      image: require('@images/logosrgal-w.png'),
     },
     // {
     //   key: 'page2',
@@ -219,6 +253,7 @@ export default {
         params: {
           id: 10941,
           title: 'contactus',
+          url: 'https://saborruralgalicia.com/contactanos/'
         },
         icon: Icons.MaterialCommunityIcons.Pin,
       },
@@ -226,7 +261,7 @@ export default {
         text: 'About',
         routeName: 'CustomPage',
         params: {
-          url: 'http://inspireui.com/about/',
+          url: 'https://saborruralgalicia.com/que-es-sabor-rural/',
         },
         icon: Icons.MaterialCommunityIcons.Email,
       },
@@ -253,23 +288,24 @@ export default {
     // },
     // only support mstore pro
     // {
-    //   label: 'Languages',
+    //   label: 'Languages', 
     //   routeName: 'SettingScreen',
     // },
-    // {
-    //   label: 'PushNotification',
-    // },
+    {
+      label: 'PushNotification',
+    },
     // {
     //   label: 'DarkTheme',
     // },
-    // {
-    //   label: 'contactus',
-    //   routeName: 'CustomPage',
-    //   params: {
-    //     id: 10941,
-    //     title: 'contactus',
-    //   },
-    // },
+    {
+      label: 'contactus',
+      routeName: 'CustomPage',
+      params: {
+        id: 10941,
+        title: 'contactus',
+        url: 'https://saborruralgalicia.com/contactanos/'
+      },
+    },
     {
       label: 'Privacy',
       routeName: 'CustomPage',
@@ -277,21 +313,22 @@ export default {
         url: 'https://saborruralgalicia.com/politica-privacidad/',
       },
     },
-    // {
-    //   label: 'termCondition',
-    //   routeName: 'CustomPage',
-    //   params: {
-    //     url: 'https://inspireui.com/term-of-service',
-    //   },
-    // },
-    // {
-    //   label: 'About',
-    //   routeName: 'CustomPage',
-    //   params: {
-    //     id: 10939,
-    //     title: 'About',
-    //   },
-    // },
+    {
+      label: 'termCondition',
+      routeName: 'CustomPage',
+      params: {
+        url: 'https://saborruralgalicia.com/condiciones-compra/',
+      },
+    },
+    {
+      label: 'About',
+      routeName: 'CustomPage',
+      params: {
+        id: 10939,
+        title: 'About',
+        url: 'https://saborruralgalicia.com/que-es-sabor-rural/',
+      },
+    },
   ],
 
   // Homepage Layout setting
@@ -334,7 +371,7 @@ export default {
   },
 
   // new list category design
-  CategoriesLayout: Constants.CategoriesLayout.card,
+  CategoriesLayout: Constants.CategoriesLayout.sideMenu,
 
   // WARNING: Currently when you change DefaultCurrency, please uninstall your app and reinstall again. The redux saved store.
   DefaultCurrency: {
@@ -352,7 +389,7 @@ export default {
     code: 'en',
     RTL: false,
     language: 'English',
-    countryCode: 'US',
+    countryCode: 'ES',
     hideCountryList: false, // when this option is try we will hide the country list from the checkout page, default select by the above 'countryCode'
   },
 
@@ -371,7 +408,7 @@ export default {
   },
 
   Layout: {
-    HideHomeLogo: false,
+    HideHomeLogo: true,
     HideLayoutModal: false,
   },
 

@@ -3,7 +3,7 @@ import Reactotron from 'reactotron-react-native';
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 
-import reducers from '@redux';
+import reducers from '@app/redux-store';
 import { Constants } from '@common';
 import { connectConsoleToReactotron, DEV_ENV } from '@app/Omni';
 import './../../ReactotronConfig';

@@ -60,7 +60,7 @@ export default StyleSheet.create({
   },
   btnBuyText: {
     color: 'white',
-    fontSize: 14,
+    fontSize: 15,
     fontFamily: Constants.fontHeader,
   },
   btnBack: {
@@ -69,8 +69,7 @@ export default StyleSheet.create({
   },
   btnBackText: {
     color: '#999',
-    fontSize: 14,
-    fontWeight: 'bold',
+    fontSize: 15,
     fontFamily: Constants.fontHeader,
   },
 

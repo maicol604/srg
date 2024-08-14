@@ -263,6 +263,7 @@ export default StyleSheet.create({
   dropdownRightIconStyle: {
     flex: 0.1,
     alignItems: 'center',
+    paddingRight: 5
   },
   dropdownTextStyle: {
     fontSize: 14,

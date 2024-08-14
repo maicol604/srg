@@ -29,7 +29,7 @@ class LanguagePicker extends PureComponent {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.language.lang !== nextProps.language.lang) {
       // Enable for mode RTL
       setTimeout(() => {
@@ -138,7 +138,7 @@ const mapStateToProps = state => ({ language: state.language });
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/LangRedux');
+  const { actions } = require('@app/redux-store/LangRedux');
   return {
     ...ownProps,
     ...stateProps,

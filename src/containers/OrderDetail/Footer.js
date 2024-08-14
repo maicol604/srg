@@ -5,7 +5,7 @@ import { View } from 'react-native';
 import { WooWorker } from 'api-ecommerce';
 import { connect } from 'react-redux';
 
-import { withTheme, Languages } from '@common';
+import { withTheme, Languages, Color } from '@common';
 import { Button } from '@components';
 import styles from './styles';
 
@@ -37,17 +37,17 @@ class Footer extends React.PureComponent {
     const { cancelled, refunded } = this.state;
 
     return (
-      <View style={styles.footer}>
+      <View style={[styles.footer,{justifyContent:'center'}]}>
         <Button
           text={Languages.Cancel}
-          style={[styles.button, { backgroundColor: '#ff1744' }]}
+          style={[styles.button, { backgroundColor: Color.primary, marginRight: 5 }]}
           textStyle={styles.buttonText}
           onPress={() => this._onPress(OrderStatus.cancelled)}
           isLoading={cancelled}
         />
         <Button
           text={Languages.Refund}
-          style={[styles.button]}
+          style={[styles.button,{ marginLeft: 5 }]}
           textStyle={styles.buttonText}
           onPress={() => this._onPress(OrderStatus.refunded)}
           isLoading={refunded}
@@ -61,7 +61,7 @@ const mapStateToProps = ({ user }) => ({ user });
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/CartRedux');
+  const { actions } = require('@app/redux-store/CartRedux');
   return {
     ...ownProps,
     ...stateProps,

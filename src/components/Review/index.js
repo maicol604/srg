@@ -89,6 +89,7 @@ class Review extends PureComponent {
             value={this.state.txtComment}
             onChangeText={text => this.setState({ txtComment: text })}
             placeholder={Languages.placeComment}
+            placeholderTextColor={'rgba(0,0,0,0.4)'}
             onSubmitEditing={this.submitComment}
           />
           <TouchableOpacity

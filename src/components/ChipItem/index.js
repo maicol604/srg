@@ -22,7 +22,7 @@ class Item extends React.PureComponent {
         onPress={() => onPress(item)}
         style={[styles.container(dark), selected && styles.selected(dark)]}
       >
-        <Text style={styles.text(dark)}>{label}</Text>
+        <Text style={[styles.text(dark), selected && styles.selectedText(dark)]}>{label}</Text>
       </TouchableOpacity>
     );
   }

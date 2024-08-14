@@ -19,7 +19,7 @@ class FinishOrder extends PureComponent {
       <View style={styles.container}>
         <View style={styles.iconContainer}>
           <Ionicons
-            name="ios-checkmark-circle"
+            name="checkmark-circle"
             size={80}
             color={Color.accent}
           />

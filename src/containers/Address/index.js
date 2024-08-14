@@ -59,7 +59,7 @@ const mapStateToProps = state => {
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/AddressRedux');
+  const { actions } = require('@app/redux-store/AddressRedux');
   return {
     ...ownProps,
     ...stateProps,

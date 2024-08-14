@@ -10,7 +10,7 @@ export default StyleSheet.create({
   headerLabel: {
     color: '#333',
     fontSize: 28,
-    fontFamily: Constants.fontHeader,
+    fontFamily: Constants.fontFamilyBold,
     marginBottom: 0,
     marginLeft: 22,
     position: 'absolute',
@@ -38,7 +38,7 @@ export default StyleSheet.create({
   headerLabelStatic: {
     color: '#333',
     fontSize: 20,
-    fontFamily: Constants.fontHeader,
+    fontFamily: Constants.fontFamilyBold,
     marginBottom: 0,
     marginLeft: 55,
 
@@ -46,11 +46,11 @@ export default StyleSheet.create({
 
     ...Platform.select({
       ios: {
-        marginTop: 12,
+        marginTop: 10,
         paddingTop: Config.showStatusBar ? 23 : 2,
       },
       android: {
-        marginTop: 18,
+        marginTop: 8,
       },
     }),
   },

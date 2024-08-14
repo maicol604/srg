@@ -1,8 +1,9 @@
 /** @format */
 
-import { persistCombineReducers } from 'redux-persist';
-import storage from 'redux-persist/es/storage';
-
+import { combineReducers } from 'redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { persistReducer } from 'redux-persist';
+ 
 // You have to import every reducers and combine them.
 import { reducer as AppReducer } from './AppRedux';
 import { reducer as CategoryReducer } from './CategoryRedux';
@@ -23,39 +24,41 @@ import { reducer as TagRedux } from './TagRedux';
 import { reducer as AddressRedux } from './AddressRedux';
 import { reducer as BrandsRedux } from './BrandsRedux';
 import { reducer as FilterRedux } from './FilterRedux';
-
-const config = {
-  key: 'root',
-  storage,
-  blacklist: [
-    'netInfo',
-    'toast',
-    'nav',
-    'layouts',
-    'payment',
-    'sideMenu',
-    'filters',
-  ],
+ 
+const persistConfig = {
+    key: 'root',
+    storage: AsyncStorage,
+    blacklist: [
+        'netInfo',
+        'toast',
+        'nav',
+        'layouts',
+        'payment',
+        'sideMenu',
+        'filters',
+    ],
 };
-
-export default persistCombineReducers(config, {
-  app: AppReducer,
-  categories: CategoryReducer,
-  products: ProductRedux,
-  netInfo: NetInfoReducer,
-  toast: ToastReducer,
-  user: UserRedux,
-  carts: CartRedux,
-  wishList: WishListRedux,
-  news: NewsRedux,
-  layouts: LayoutRedux,
-  language: LangRedux,
-  payments: PaymentRedux,
-  countries: CountryRedux,
-  currency: CurrencyRedux,
-  sideMenu: SideMenuRedux,
-  tags: TagRedux,
-  addresses: AddressRedux,
-  brands: BrandsRedux,
-  filters: FilterRedux,
+  
+const rootReducer = combineReducers({
+    app: AppReducer,
+    categories: CategoryReducer,
+    products: ProductRedux,
+    netInfo: NetInfoReducer,
+    toast: ToastReducer,
+    user: UserRedux,
+    carts: CartRedux,
+    wishList: WishListRedux,
+    news: NewsRedux,
+    layouts: LayoutRedux,
+    language: LangRedux,
+    payments: PaymentRedux,
+    countries: CountryRedux,
+    currency: CurrencyRedux,
+    sideMenu: SideMenuRedux,
+    tags: TagRedux,
+    addresses: AddressRedux,
+    brands: BrandsRedux,
+    filters: FilterRedux,
 });
+
+export default persistReducer(persistConfig, rootReducer);

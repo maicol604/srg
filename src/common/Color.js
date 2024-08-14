@@ -1,31 +1,31 @@
 /** @format */
 
 export default {
-  primary: '#3FC1BE', // '#FF0074', //
-
+  primary: '#902726', // '#FF0074', //
+  borderColor: 'rgba(183, 186, 189, 0.2)',
   // navigation bar
-  headerTintColor: '#1CB5B4',
+  headerTintColor: '#333',
 
   // bottom tab bar
   tabbar: 'rgba(255, 255, 255, 1)',
-  tabbarTint: '#3FC1BE', // '#FF0074', //
+  tabbarTint: '#902726', // '#FF0074', //
   tabbarColor: '#ccc',
 
   // wishlist
-  heartActiveWishList: 'rgba(252, 31, 74, 1)',
+  heartActiveWishList: '#902726',
 
   // step indicate from the checkout page
   checkout: {
-    stepActive: '#2AB5B3',
+    stepActive: '#902726',
   },
 
   // Product tabs
   product: {
-    TabActive: '#3FC1BE',
+    TabActive: '#902726',
     TabDeActive: 'white',
     TabActiveText: '#333',
     TabText: '#333',
-    BuyNowButton: '#3FC1BE',
+    BuyNowButton: '#902726',
     OutOfStockButton: '#a44',
     ViewBorder: '#bcbebb',
     Text: '#333',
@@ -70,6 +70,7 @@ export default {
   // Text
   Text: '#333',
   spin: '#333333',
+  categoryOpacity: '#f4d5d5',
 
   attributes: {
     black: '#333',

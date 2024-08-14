@@ -1,8 +1,8 @@
 /** @format */
 
 import { Dimensions, StyleSheet, I18nManager } from 'react-native';
-import { getBottomSpace } from 'react-native-iphone-x-helper';
-import { Color, Styles } from '@common';
+import { getBottomSpace, isIphoneX } from 'react-native-iphone-x-helper';
+import { Color, Constants, Styles } from '@common';
 
 const { width, height } = Dimensions.get('window');
 
@@ -41,6 +41,7 @@ export default StyleSheet.create({
     paddingBottom: 8,
     flex: 1,
     textAlign: I18nManager.isRTL ? 'right' : 'left',
+    fontFamily: Constants.fontFamily
   }),
   loginButton: {
     marginTop: 20,
@@ -57,6 +58,7 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     flexGrow: 1,
     borderColor: text,
+    fontFamily: Constants.fontFamily
   }),
   separatorText: text => ({
     color: text,
@@ -66,6 +68,7 @@ export default StyleSheet.create({
     backgroundColor: Color.login.facebook,
     borderRadius: 5,
     elevation: 1,
+    marginVertical: 5,
   },
   smsButton: {
     marginVertical: 10,
@@ -87,9 +90,10 @@ export default StyleSheet.create({
   signUp: {
     color: Color.blackTextSecondary,
     marginTop: 20,
+    fontFamily: Constants.fontFamily
   },
   highlight: {
-    fontWeight: 'bold',
+    fontFamily: Constants.fontFamilyBold,
     color: Color.primary,
   },
   overlayLoading: {

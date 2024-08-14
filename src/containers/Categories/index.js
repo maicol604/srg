@@ -15,7 +15,7 @@ import {
   ColumnCategories,
 } from '@components';
 
-import * as CategoryRedux from '@redux/CategoryRedux';
+import * as CategoryRedux from '@app/redux-store/CategoryRedux';
 
 import CategoriesList from './CategoriesList';
 

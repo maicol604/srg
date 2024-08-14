@@ -12,8 +12,8 @@
       "@store": ["store"],
       "@utils": ["utils"],
       "@ExpoCustom": ["Expo"],
-      "@redux": ["redux"],
-
+      "@redux": ["redux-store"],
+      
       "@app/*": ["*"]
     }
   },

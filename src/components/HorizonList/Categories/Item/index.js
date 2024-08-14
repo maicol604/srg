@@ -36,7 +36,11 @@ class Item extends Component {
           <View style={styles.iconView}>
             <Image
               source={item.image}
-              style={[styles.icon, { tintColor: item.colors[0] }]}
+              style={[
+                styles.icon, 
+                { tintColor: item.colors[0] },
+                item.category == 21 ? { marginBottom: 35 } : {}
+              ]}
             />
           </View>
           <Text style={[styles.title, { color: text }]}>{label}</Text>

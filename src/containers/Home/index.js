@@ -9,8 +9,8 @@ import { useNavigation } from '@react-navigation/native';
 
 import { Constants, withTheme } from '@common';
 import { HorizonList, ModalLayout, PostList } from '@components';
-import * as CountryRedux from '@redux/CountryRedux';
-import * as CategoryRedux from '@redux/CategoryRedux';
+import * as CountryRedux from '@app/redux-store/CountryRedux';
+import * as CategoryRedux from '@app/redux-store/CategoryRedux';
 
 import styles from './styles';
 

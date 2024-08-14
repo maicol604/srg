@@ -96,6 +96,7 @@ class PickerBox extends Component {
     Animated.spring(this.state.verticalPos, {
       toValue: finalValue,
       friction: Platform.OS === 'ios' ? 9 : 8,
+      useNativeDriver: false
     }).start();
   };
 

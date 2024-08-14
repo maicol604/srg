@@ -8,8 +8,9 @@ import { connect } from 'react-redux';
 import { log } from '@app/Omni';
 import { Button } from '@components';
 import { Styles, Color, Languages, withTheme } from '@common';
-import { actions as FiltersActions } from '@redux/FilterRedux';
+import { actions as FiltersActions } from '@app/redux-store/FilterRedux';
 import Section from './Section';
+import Device from '@app/common/Device';
 
 const sections = [
   { title: 'Sub Category', type: 'category', storeName: 'category' },
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     justifyContent: 'center',
-    paddingTop: 20,
+    paddingTop: Device.statusBarHeight,
   },
   subContainer: {
     backgroundColor: Color.background,

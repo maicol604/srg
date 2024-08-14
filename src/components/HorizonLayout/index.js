@@ -51,7 +51,7 @@ export default class HorizonLayout extends PureComponent {
       case Constants.Layout.Banner:
         return <Banner {...props} />;
       case Constants.Layout.BannerHigh:
-        return <BannerHigh {...props} />;
+        // return <BannerHigh {...props} />;
       default:
         return <ColumnHigh {...props} />;
     }

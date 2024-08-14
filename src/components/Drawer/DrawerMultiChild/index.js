@@ -183,7 +183,6 @@ class DrawerMultiChild extends PureComponent {
 
   _handlePress = (item, section) => {
     const { goToScreen, setSelectedCategory } = this.props;
-
     if (section) {
       const params = {
         ...item,
@@ -277,7 +276,7 @@ const mapStateToProps = ({ user, categories, netInfo, language }) => ({
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { netInfo } = stateProps;
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/CategoryRedux');
+  const { actions } = require('@app/redux-store/CategoryRedux');
 
   return {
     ...ownProps,

@@ -8,7 +8,7 @@ import {
   View,
   ActivityIndicator,
 } from 'react-native';
-import { Color } from '@common';
+import { Color, Constants } from '@common';
 import { Icon } from '@app/Omni';
 
 class Button extends PureComponent {
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   text: {
-    fontWeight: 'bold',
+    fontFamily: Constants.fontFamilyBold
   },
   icon: {
     marginRight: 10,

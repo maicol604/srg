@@ -1,7 +1,7 @@
 /** @format */
 
 import { StyleSheet, I18nManager } from 'react-native';
-import { Color, Styles } from '@common';
+import { Color, Constants, Styles } from '@common';
 
 export default StyleSheet.create({
   container: {
@@ -27,16 +27,16 @@ export default StyleSheet.create({
     marginBottom: 5,
   },
   fullName: {
-    fontWeight: '600',
+    fontFamily: Constants.fontHeader,
     color: Color.blackTextPrimary,
     backgroundColor: 'transparent',
     fontSize: Styles.FontSize.large,
-    marginBottom: 6,
     textAlign: 'left',
   },
   email: {
     backgroundColor: 'transparent',
     fontSize: 13,
+    fontFamily: Constants.fontFamily,
     textAlign: 'left',
   },
   textItem: {
@@ -61,7 +61,7 @@ export default StyleSheet.create({
     textAlign: 'left',
   },
   textContainer: {
-    marginLeft: 5,
+    marginLeft: 10,
     marginRight: 5,
     justifyContent: 'center',
     flex: 1,

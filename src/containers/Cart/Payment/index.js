@@ -11,7 +11,7 @@ import { isArray } from 'lodash';
 
 import { toast, warn } from '@app/Omni';
 import { Button, ConfirmCheckout } from '@components';
-import { Config, Images, Languages, Tools, withTheme } from '@common';
+import { Config, Constants, Images, Languages, Tools, withTheme } from '@common';
 import Buttons from '@cart/Buttons';
 import css from '@cart/styles';
 
@@ -259,6 +259,7 @@ class PaymentOptions extends PureComponent {
         flex: 1,
         textAlign: 'center',
         width,
+        fontFamily: Constants.fontFamily
         // paddingLeft: 20,
       },
     };
@@ -412,9 +413,9 @@ const mapStateToProps = ({ payments, carts, user, products, currency }) => {
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const CartRedux = require('@redux/CartRedux');
-  const productActions = require('@redux/ProductRedux').actions;
-  const paymentActions = require('@redux/PaymentRedux').actions;
+  const CartRedux = require('@app/redux-store/CartRedux');
+  const productActions = require('@app/redux-store/ProductRedux').actions;
+  const paymentActions = require('@app/redux-store/PaymentRedux').actions;
   return {
     ...ownProps,
     ...stateProps,

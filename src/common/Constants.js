@@ -10,6 +10,7 @@ const Constants = {
 
   Language: 'en', // ar, en. Default to set redux. Only use first time
   fontFamily: 'OpenSans',
+  fontFamilyBold: 'OpenSansBold',
   fontHeader: 'Baloo',
   fontHeaderAndroid: 'Baloo',
   WordPress: {
@@ -78,6 +79,7 @@ const Constants = {
     BannerHigh: 'bannerHigh',
     BannerSlider: 'bannerSlider',
     BannerImage: 'bannerImage',
+    BannerSliderImage: 'bannerSliderImage',
   },
   pagingLimit: 10,
 

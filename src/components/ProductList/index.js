@@ -148,7 +148,7 @@ class ProductList extends Component {
           onEndReachedThreshold={0.5}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
-            { useNativeDriver: Platform.OS !== 'android' },
+            { useNativeDriver: false },
           )}
         />
       </View>
@@ -166,7 +166,7 @@ const mapStateToProps = ({ layouts, currency }, ownProp) => {
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { dispatch } = dispatchProps;
-  const { actions: LayoutActions } = require('@redux/LayoutRedux');
+  const { actions: LayoutActions } = require('@app/redux-store/LayoutRedux');
   return {
     ...ownProps,
     ...stateProps,

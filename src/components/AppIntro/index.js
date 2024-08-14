@@ -76,7 +76,7 @@ class AppIntro extends PureComponent {
     return (
       <View style={styles.buttonCircle}>
         <Ionicons
-          name="md-checkmark"
+          name="checkmark"
           color="rgba(255, 255, 255, .9)"
           size={24}
           style={{ backgroundColor: 'transparent' }}
@@ -99,7 +99,7 @@ class AppIntro extends PureComponent {
 }
 
 const mapDispatchToProps = dispatch => {
-  const { actions } = require('@redux/UserRedux');
+  const { actions } = require('@app/redux-store/UserRedux');
   return {
     finishIntro: () => dispatch(actions.finishIntro()),
   };

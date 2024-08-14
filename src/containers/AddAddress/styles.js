@@ -25,5 +25,6 @@ export default StyleSheet.create({
   },
   add: {
     color: '#fff',
+    fontFamily: Constants.fontFamilyBold
   },
 });

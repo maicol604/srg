@@ -17,7 +17,7 @@ const SafeArea = ({ children }) => {
     <View
       style={{
         flex: 1,
-        paddingBottom: Math.max(insets.bottom, 16),
+        paddingBottom: Math.max(insets.bottom, 0),
         backgroundColor: 'white',
       }}
     >

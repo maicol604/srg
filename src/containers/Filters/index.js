@@ -56,7 +56,7 @@ class Filters extends React.PureComponent {
             <Slider
               value={this.state.value}
               onValueChange={this.onValueChange}
-              onSlidingComplete={value => {}}
+              onSlidingComplete={value => { }}
               minimumTrackTintColor={Color.primary}
               maximumTrackTintColor="#bdc2cc"
               thumbTintColor={Color.primary}
@@ -124,7 +124,7 @@ const mapStateToProps = state => {
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/TagRedux');
+  const { actions } = require('@app/redux-store/TagRedux');
 
   return {
     ...ownProps,

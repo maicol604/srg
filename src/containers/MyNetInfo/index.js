@@ -74,7 +74,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  const { actions } = require('@redux/NetInfoRedux');
+  const { actions } = require('@app/redux-store/NetInfoRedux');
 
   return {
     updateConnectionStatus: isConnected =>

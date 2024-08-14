@@ -13,6 +13,11 @@ import { InstantSearch, Configure, Index } from 'react-instantsearch/native';
 
 class SearchBox extends PureComponent {
   render() {
+    const {
+      theme: {
+        colors: { placeholder},
+      },
+    } = this.props;
     return (
       <View style={styles.searchBoxContainer}>
         <Image
@@ -31,7 +36,7 @@ class SearchBox extends PureComponent {
           }}
           value={this.props.currentRefinement}
           placeholder="Search a product..."
-          placeholderTextColor="black"
+          placeholderTextColor={placeholder}
           clearButtonMode="always"
           underlineColorAndroid="white"
           spellCheck={false}

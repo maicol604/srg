@@ -21,7 +21,7 @@ const NavBarLogo = ({ route }) => {
   return (
     <Animated.Image
       source={Config.LogoImage}
-      style={[Styles.Common.logo, { opacity: scrollAnimation }]}
+      style={[Styles.Common.logo, { opacity: scrollAnimation}]}
     />
   );
 };
@@ -70,12 +70,12 @@ const EmptyView = () => (
   />
 );
 
-const HeaderRight = navigation => (
+const HeaderRight = ({ navigation }) => (
   <View
     style={[
       Styles.Common.Row,
-      I18nManager.isRTL ? { left: -10 } : { right: -5 },
-      Platform.OS !== 'ios' && { right: -12 },
+      I18nManager.isRTL ? { left: -10 } : { right: 5 },
+      Platform.OS !== 'ios' && { right: -5 },
     ]}
   >
     <NavigationBarIcon
@@ -87,7 +87,7 @@ const HeaderRight = navigation => (
 );
 
 const HeaderHomeRight = () => (
-  <View style={[Styles.Common.Row, Platform.OS !== 'ios' && { right: -12 }]}>
+  <View style={[Styles.Common.Row, Platform.OS !== 'ios' && { right: -10 }]}>
     {!Config.Layout.HideLayoutModal && (
       <NavigationBarIcon
         icon={Images.IconGrid}
@@ -113,7 +113,7 @@ const Back = ({ navigation, iconBack, dark }) => (
     <Image
       source={iconBack || Images.icons.back}
       style={[
-        Styles.Common.toolbarIconBack,
+        Styles.Common.toolbarIconBack, 
         iconBack && Styles.Common.iconBack,
         dark && { tintColor: '#fff' },
         I18nManager.isRTL && {
@@ -131,8 +131,8 @@ const RightIcon = ({ icon, onPress }) => (
 );
 
 const Title = ({ title, textColor }) => (
-  <View>
-    <Text style={[Styles.Common.headerTitleStyle, { color: textColor }]}>
+  <View style={{ marginLeft: 18 }}>
+    <Text style={[Styles.Common.headerTitleStyle, { color: textColor, fontSize: 19, }]}>
       {title}
     </Text>
   </View>

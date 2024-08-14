@@ -18,7 +18,7 @@ export default class PostLayout extends PureComponent {
 
   render() {
     const data = this.props.post;
-    const { onViewPost, type, currency } = this.props;
+    const { onViewPost, type, currency, index } = this.props;
     const isProduct = type == 'undefined';
 
     let image_width = 0;
@@ -85,6 +85,7 @@ export default class PostLayout extends PureComponent {
             type={type}
             date={type ? data.date : data.date_created}
             currency={currency}
+            index={index}
           />
         );
 

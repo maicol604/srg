@@ -43,7 +43,7 @@ class AnimatedHeader extends PureComponent {
 
     const titleTransformY = scrollY.interpolate({
       inputRange: [0, 50],
-      outputRange: [0, -45],
+      outputRange: [0, -37],
       extrapolate: 'clamp',
     });
     const titleTransformX = scrollY.interpolate({

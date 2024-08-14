@@ -296,7 +296,7 @@ class Cart extends PureComponent {
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const CartRedux = require('@redux/CartRedux');
+  const CartRedux = require('@app/redux-store/CartRedux');
   return {
     ...ownProps,
     ...stateProps,

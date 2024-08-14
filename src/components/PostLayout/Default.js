@@ -4,7 +4,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Text, TouchableOpacity } from 'react-native';
 import { ImageCache } from '@components';
-import TimeAgo from 'react-native-timeago';
+import TimeAgo from '@custom/react-native-timeago';
 import css from './style';
 
 export default class DefaultLayout extends PureComponent {
