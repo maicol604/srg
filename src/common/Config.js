@@ -38,9 +38,9 @@ export default {
       label: "Cestas Gourmet",
       imageMode: "cover",
       type: "bannerImage",
-      title: "What is Lorem Ipsum?",
-      description: "Lorem Ipsum is simply dummy text",
-      images: [{ "src": "https://saborruralgalicia.com/wp-content/uploads/2023/01/slide-cestas.jpg" }]
+      title: "Descubre cada producto por su",
+      description: "DENOMINACÓN DE ORIGEN.",
+      images: [{ src: "https://saborruralgalicia.com/wp-content/uploads/2024/08/Denominacion-de-origen.jpg" }]
     },
     {
       height: 160,
@@ -48,8 +48,8 @@ export default {
       label: "Drinks",
       imageMode: "cover",
       type: "bannerImage",
-      title: "What is Lorem Ipsum?",
-      description: "Lorem Ipsum is simply dummy text",
+      title: "Explora las mejores bodegas y",
+      description: "ENCUENTRA EL SABOR PERFECTO",
       images: [{ src: "https://saborruralgalicia.com/wp-content/uploads/2024/01/Black-Drink-Up-Facebook-Event-Cover-1536x864.png" }]
     },
     {
@@ -58,8 +58,8 @@ export default {
       label: "Cake Shop",
       imageMode: "cover",
       type: "bannerImage",
-      title: "What is Lorem Ipsum?",
-      description: "Lorem Ipsum is simply dummy text",
+      title: "Selecciona tu vino favorito",
+      description: "SEGÚN SU PRODUCTOR.",
       images: [{ src: "https://saborrural.es/wp-content/uploads/2021/05/banner-tiendasr.png" }]
     }
   ],
@@ -72,13 +72,13 @@ export default {
       label: 'Vinos',
     },
     {
-      category: 21,
+      category: 328,
       image: require('@images/categories_icon/ic_deno.png'),
       colors: ['#0f7e75', '#cfe6e4'],
       label: 'Denominación de origen',
     },
     {
-      category: 208,
+      category: 333,
       image: require('@images/categories_icon/ic-productores.png'),
       colors: ['#878033', '#e5e3d2'],
       label: 'Productores',
@@ -97,36 +97,36 @@ export default {
     // },
   ],
   HomeCategories_AR: [
-    {
-      category: 55,
-      image: require('@images/categories_icon/ic_shorts.png'),
-      colors: ['#4facfe', '#00f2fe'],
-      label: 'لكن',
-    },
-    {
-      category: 21,
-      image: require('@images/categories_icon/ic_tshirt.png'),
-      colors: ['#43e97b', '#38f9d7'],
-      label: 'تي شيرت',
-    },
-    {
-      category: 208,
-      image: require('@images/categories_icon/ic_panties.png'),
-      colors: ['#fa709a', '#fee140'],
-      label: 'ملابس',
-    },
-    {
-      category: 26,
-      image: require('@images/categories_icon/ic_dress.png'),
-      colors: ['#7F00FF', '#E100FF'],
-      label: 'فساتين',
-    },
-    {
-      category: 24,
-      image: require('@images/categories_icon/ic_glasses.png'),
-      colors: ['#30cfd0', '#330867'],
-      label: 'أكياس',
-    },
+    // {
+    //   category: 55,
+    //   image: require('@images/categories_icon/ic_shorts.png'),
+    //   colors: ['#4facfe', '#00f2fe'],
+    //   label: 'لكن',
+    // },
+    // {
+    //   category: 21,
+    //   image: require('@images/categories_icon/ic_tshirt.png'),
+    //   colors: ['#43e97b', '#38f9d7'],
+    //   label: 'تي شيرت',
+    // },
+    // {
+    //   category: 208,
+    //   image: require('@images/categories_icon/ic_panties.png'),
+    //   colors: ['#fa709a', '#fee140'],
+    //   label: 'ملابس',
+    // },
+    // {
+    //   category: 26,
+    //   image: require('@images/categories_icon/ic_dress.png'),
+    //   colors: ['#7F00FF', '#E100FF'],
+    //   label: 'فساتين',
+    // },
+    // {
+    //   category: 24,
+    //   image: require('@images/categories_icon/ic_glasses.png'),
+    //   colors: ['#30cfd0', '#330867'],
+    //   label: 'أكياس',
+    // },
   ],
   /**
      step 3: Config image for the Payment Gateway
@@ -167,7 +167,7 @@ export default {
   showStatusBar: true,
   LogoImage: require('@images/logosrgal.png'),
   LogoWithText: require('@images/logosrgal.png'),
-  LogoLoading: require('@images/logosrgal.png'),
+  LogoLoading: require('@images/loader.png'),
 
   showAdmobAds: false,
   AdMob: {
@@ -188,6 +188,7 @@ export default {
       icon: false,
       colors: ['#212121', '#902726'],
       image: require('@images/logosrgal-w.png'),
+      bgImage: require('@images/intro/intro-bg.jpg'),
     },
     // {
     //   key: 'page2',
@@ -291,9 +292,9 @@ export default {
     //   label: 'Languages', 
     //   routeName: 'SettingScreen',
     // },
-    {
-      label: 'PushNotification',
-    },
+    // {
+    //   label: 'PushNotification',
+    // },
     // {
     //   label: 'DarkTheme',
     // },

@@ -42,7 +42,7 @@ export default StyleSheet.create({
     height: 32,
     resizeMode: 'contain',
     tintColor: '#FFF',
-    marginBottom: 20,
+    // marginBottom: 20,
   },
 
   background: {

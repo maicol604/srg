@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StatusBar, I18nManager } from 'react-native';
+import { View, StatusBar, I18nManager, Text } from 'react-native';
 import { WooWorker } from 'api-ecommerce';
 import NetInfo from '@react-native-community/netinfo';
 import { NavigationContainer } from '@react-navigation/native';
@@ -18,6 +18,7 @@ import MenuSide from '@components/LeftMenu/MenuOverlay';
 // import MenuSide from '@components/LeftMenu/MenuWide';
 
 import { toast, closeDrawer } from './Omni';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const AR_LANGUAGE = 'ar';
 
@@ -99,7 +100,7 @@ const Router = props => {
   };
   
   if (!introStatus) {
-    return <AppIntro />;
+    return <GestureHandlerRootView><AppIntro /></GestureHandlerRootView>;
   }
 
   if (loading || initializing) {

@@ -26,22 +26,23 @@ class Item extends Component {
           style={styles.wrap}
           onPress={() => onPress({ ...item, circle: true, name: label })}
         >
-          <View
-            style={[
-              styles.background,
-              { opacity: 0.08, backgroundColor: item.colors[0] },
-            ]}
-          />
-
-          <View style={styles.iconView}>
-            <Image
-              source={item.image}
+          <View>
+            <View
               style={[
-                styles.icon, 
-                { tintColor: item.colors[0] },
-                item.category == 21 ? { marginBottom: 35 } : {}
+                styles.background,
+                { opacity: 0.08, backgroundColor: item.colors[0] },
               ]}
             />
+            <View style={styles.iconView}>
+              <Image
+                source={item.image}
+                style={[
+                  styles.icon, 
+                  { tintColor: item.colors[0] },
+                  item.category == 21 ? { marginBottom: 35 } : {}
+                ]}
+              />
+            </View>
           </View>
           <Text style={[styles.title, { color: text }]}>{label}</Text>
         </TouchableScale>
