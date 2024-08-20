@@ -133,7 +133,7 @@ class SplitCategories extends Component {
                         />
                       </View>
                     }
-                    <Text style={{ width: 75, textAlign: 'center' }}>{ item.name }</Text>
+                    <Text style={{ width: 75, textAlign: 'center',fontFamily: Constants.fontFamily }}>{ item.name }</Text>
                   </TouchableOpacity>
                 )}
                 numColumns={3}
@@ -186,7 +186,7 @@ class SplitCategories extends Component {
                             />
                           </View>
                         }
-                        <Text style={{ width: 75, textAlign: 'center' }}>{ item.name }</Text>
+                        <Text style={{ width: 75, textAlign: 'center',fontFamily: Constants.fontFamily }}>{ item.name }</Text>
                       </TouchableOpacity>
                     ))
                   return (<></>)
@@ -233,7 +233,8 @@ class SplitCategories extends Component {
                   style={{
                     fontSize: 18, 
                     position: 'absolute',
-                    color: '#fff'
+                    color: '#fff',
+                    fontFamily: Constants.fontFamily
                   }}
                 >
                   {categories[this.state.selectedIndex].name}

@@ -22,7 +22,10 @@ import styles from './styles';
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
 class ProductList extends Component {
-  state = { scrollY: new Animated.Value(0) };
+  state = {
+    scrollY: new Animated.Value(0),
+    isRefreshing: false 
+  };
 
   constructor(props) {
     super(props);
@@ -36,6 +39,12 @@ class ProductList extends Component {
     this.page === 0 && this.fetchData();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.list !== this.props.list) {
+      this.setState({ isRefreshing: false });
+    }
+  }
+  
   shouldComponentUpdate(nextProps) {
     return nextProps.list !== this.props.list;
   }
@@ -74,6 +83,7 @@ class ProductList extends Component {
         onViewPost={() => this.onRowClickHandle(item, this.props.type)}
         layout={layout}
         currency={this.props.currency}
+        index={index}
       />
     );
   };
@@ -93,6 +103,7 @@ class ProductList extends Component {
 
   render() {
     const { list, config, isFetching, navigation } = this.props;
+    const { isRefreshing } = this.state;
     const {
       theme: {
         colors: { background },
@@ -100,32 +111,13 @@ class ProductList extends Component {
     } = this.props;
 
     // const renderFooter = () => isFetching && <Spinkit />;
-    const renderFooter = () => {
-      return isFetching ? (
-        <Spinkit />
-      ) : (
-        <View style={styles.footer}>
-          <TouchableOpacity
-            onPress={this.handleLoadMore}
-            style={styles.footerBtn}
-          >
-            {isFetching ? (
-              <Spinkit />
-            ) : (
-              <Text style={styles.footerBtnText}>{Languages.LoadMore}</Text>
-            )}
-          </TouchableOpacity>
-        </View>
-      );
-    };
-
     return (
       <View style={[styles.listView, { backgroundColor: background }]}>
         {config.name && (
           <AnimatedHeader
             scrollY={this.state.scrollY}
             hideIcon
-            label={config.name}
+            label={config.name == "featureProducts" ? "Feature Products": config.name}
             navigation={navigation}
           />
         )}
@@ -136,7 +128,28 @@ class ProductList extends Component {
           keyExtractor={(item, index) => `${item.id} || ${index}`}
           renderItem={this.renderItem}
           ListHeaderComponent={this.headerComponent}
-          ListFooterComponent={renderFooter()}
+          ListFooterComponent={() => {
+            return isFetching ? (
+              <Spinkit />
+            ) : (
+              <View style={styles.footer}>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({ isRefreshing: true }, () => {
+                      this.handleLoadMore();
+                    })
+                  }}
+                  style={styles.footerBtn}
+                >
+                  {isFetching ? (
+                    <Spinkit />
+                  ) : (
+                    <Text style={styles.footerBtnText}>{isRefreshing ? 'Loading...' : Languages.LoadMore}</Text>
+                  )}
+                </TouchableOpacity>
+              </View>
+            );
+          }}
           refreshing={isFetching}
           numColumns={2}
           refreshControl={
@@ -145,7 +158,12 @@ class ProductList extends Component {
               onRefresh={() => this.fetchData(true)}
             />
           }
-          onEndReachedThreshold={0.5}
+          onEndReached={() => {
+            this.setState({ isRefreshing: true }, () => {
+              this.handleLoadMore();
+            })
+          }}
+          onEndReachedThreshold={0.9}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
             { useNativeDriver: false },

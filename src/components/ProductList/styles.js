@@ -9,7 +9,7 @@ export default StyleSheet.create({
   flatlist: {
     flexDirection: 'column',
     paddingBottom: 40,
-    paddingTop: Platform.OS === 'ios' ? 50 : 50,
+    paddingTop: Platform.OS === 'ios' ? 10 : 10,
   },
   more: {
     width,

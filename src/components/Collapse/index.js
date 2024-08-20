@@ -1,3 +1,4 @@
+import { Constants } from '@common';
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 
@@ -51,6 +52,7 @@ const styles = {
   },
   titleText: {
     fontSize: 16,
+    fontFamily: Constants.fontFamilyBold,
   },
   arrow: {
     width: 10,

@@ -61,6 +61,7 @@ class ProductRelated extends PureComponent {
                 onViewPost={() => this.onRowClickHandle(item)}
                 layout={Constants.Layout.threeColumn}
                 currency={currency}
+                index={index}
               />
             )}
           />

@@ -134,6 +134,7 @@ class Search extends PureComponent {
           ) : null;
         }}
         {...{ onScroll }}
+        onEndReached={this.nextPosts}
         ListEmptyComponent={() => {
           return (
             <Text style={{ textAlign: 'center', fontFamily: Constants.fontFamily }}>
@@ -167,7 +168,7 @@ class Search extends PureComponent {
           haveFilter={Object.keys(this.state.filter).length > 0}
         />
 
-        {this.props.isFetching ? <Spinkit /> : this.renderResultList()}
+        {this.props.isFetching && (this.page == 1) ? <Spinkit /> : this.renderResultList()}
       </View>
       // <InstantSearch />
     );

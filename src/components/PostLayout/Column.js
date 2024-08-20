@@ -38,7 +38,7 @@ class ColumnLayout extends PureComponent {
       >
         <ImageCache uri={imageURL} style={css.imagePanelTwo} />
 
-        <Text style={[css.nameTwo, { color: text }]}>{title} {index}</Text>
+        <Text style={[css.nameTwo, { color: text }]}>{title}</Text>
         {typeof type !== 'undefined' && (
           <Text style={[css.timeTwo, { alignSelf: 'center' }]}>
             <TimeAgo time={date} />
