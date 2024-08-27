@@ -102,7 +102,7 @@ class ProductList extends Component {
   };
 
   render() {
-    const { list, config, isFetching, navigation } = this.props;
+    const { list, config, isFetching, navigation, finish } = this.props;
     const { isRefreshing } = this.state;
     const {
       theme: {
@@ -128,7 +128,7 @@ class ProductList extends Component {
           keyExtractor={(item, index) => `${item.id} || ${index}`}
           renderItem={this.renderItem}
           ListHeaderComponent={this.headerComponent}
-          ListFooterComponent={() => {
+          ListFooterComponent={!finish ? () => {
             return isFetching ? (
               <Spinkit />
             ) : (
@@ -149,7 +149,7 @@ class ProductList extends Component {
                 </TouchableOpacity>
               </View>
             );
-          }}
+          } : null}
           refreshing={isFetching}
           numColumns={2}
           refreshControl={
@@ -163,7 +163,7 @@ class ProductList extends Component {
               this.handleLoadMore();
             })
           }}
-          onEndReachedThreshold={0.9}
+          onEndReachedThreshold={2}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
             { useNativeDriver: false },
