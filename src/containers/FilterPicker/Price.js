@@ -8,7 +8,7 @@ import { Color, Styles, Tools, withTheme } from '@common';
 
 class Price extends React.PureComponent {
   static defaultProps = {
-    value: 2000,
+    value: 1000,
   };
 
   state = { value: this.props.value };
@@ -45,7 +45,7 @@ class Price extends React.PureComponent {
           maximumTrackTintColor="#bdc2cc"
           thumbTintColor={Color.primary}
           minimumValue={0}
-          maximumValue={4000}
+          maximumValue={1000}
         />
       </View>
     );

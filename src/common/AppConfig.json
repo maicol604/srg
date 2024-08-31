@@ -15,7 +15,7 @@
     }
   ],
   "VerticalLayout": {
-    "name": "Recents",
+    "name": "Recientes",
     "layout": "twoColumn"
   },
   "MainColor": "#607D8B"

@@ -16,7 +16,7 @@ class Filters extends React.PureComponent {
     this.state = {
       // scrollY: new Animated.Value(0),
       // expanded: true,
-      value: 2000,
+      value: 200,
     };
   }
 
@@ -50,7 +50,7 @@ class Filters extends React.PureComponent {
             <Text style={styles.value}>
               {Tools.getCurrencyFormatted(this.state.value)}
             </Text>
-            <Text style={styles.label}>{Tools.getCurrencyFormatted(4000)}</Text>
+            <Text style={styles.label}>{Tools.getCurrencyFormatted(200)}</Text>
           </View>
           <View style={styles.slideWrap}>
             <Slider
@@ -61,7 +61,7 @@ class Filters extends React.PureComponent {
               maximumTrackTintColor="#bdc2cc"
               thumbTintColor={Color.primary}
               minimumValue={0}
-              maximumValue={4000}
+              maximumValue={200}
             />
           </View>
 

@@ -12,7 +12,7 @@ export default {
    * Step 1: change to your website URL and the wooCommerce API consumeKey
    */
   WooCommerce: {
-    url: 'https://saborruralgalicia.com',
+    url: 'https://app.saborruralgalicia.com',
     consumerKey,
     consumerSecret,
   },
@@ -75,7 +75,7 @@ export default {
       category: 328,
       image: require('@images/categories_icon/ic_deno.png'),
       colors: ['#0f7e75', '#cfe6e4'],
-      label: 'Denominación de origen',
+      label: 'DO',
     },
     {
       category: 333,

@@ -29,6 +29,8 @@ import { ScrollView } from 'react-native';
 import Collapse from '../Collapse';
 import { WebView } from 'react-native-webview';
 
+const producerId = 333;
+
 class SplitCategories extends Component {
   state = {
     selectedIndex: 0,
@@ -47,7 +49,7 @@ class SplitCategories extends Component {
 
   fetchData = async () => {
     try {
-      const response = await fetch('https://saborruralgalicia.com/wp-json/custom/v1/product-cat/'+this.props.categories[this.state.selectedIndex].id);
+      const response = await fetch(Config.WooCommerce.url+'/wp-json/custom/v1/product-cat/'+this.props.categories[this.state.selectedIndex].id);
       const data = await response.json();
       const { history, awards } = data;
       this.setState({ history, awards, loading:false });
@@ -108,6 +110,13 @@ class SplitCategories extends Component {
               <FlatList
                 style={{
                   padding: 10,
+                  width: '100%',
+                  backgroundColor: 'red'
+                }}
+                contentContainerStyle = {{
+                  justifyContent: 'center',
+                  padding: 0,
+                  backgroundColor: 'blue',
                 }}
                 data={this._getCategories(categories, categories[this.getCatFather(categories, categories[this.state.selectedIndex], this.state.selectedIndex)])}//categories[this.state.selectedIndex])}
                 renderItem={({item})=>(
@@ -117,7 +126,7 @@ class SplitCategories extends Component {
                       backgroundColor: this.isActive(categories, this.state.selectedIndex, item)?'rgba(0,0,0,.1)':'rgba(0,0,0,0)', 
                       padding: 5, 
                       borderRadius: 5,
-                      marginBottom: 10
+                      marginBottom: 10,
                     }}
                     onPress={()=>{this.selectCategory(this.getCatIndexById(categories, item.id))}}
                   >
@@ -137,6 +146,7 @@ class SplitCategories extends Component {
                   </TouchableOpacity>
                 )}
                 numColumns={3}
+                overScrollMode="never"
               />
               : 
               <ScrollView
@@ -201,6 +211,7 @@ class SplitCategories extends Component {
             !isFetching && categories && categories.length > 0 &&
             this.isChild(categories[this.state.selectedIndex]) &&
             categories[this.state.selectedIndex].image.src &&
+            (categories[this.getCatFather(categories, categories[this.state.selectedIndex], this.state.selectedIndex)].id===producerId) &&
             <View
               style = {{
                 paddingHorizontal: 10
@@ -366,6 +377,7 @@ class SplitCategories extends Component {
 
   selectCategory = index => {
     this.setState({ selectedIndex: index });
+    console.log("index categorory",index);
     const { categories, fetchProductsByCategoryId, clearProducts } = this.props;
     clearProducts();
     fetchProductsByCategoryId(categories[index].id, 1);

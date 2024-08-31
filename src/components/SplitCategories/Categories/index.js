@@ -18,9 +18,12 @@ class Categories extends Component {
       <View style={styles.container}>
         <ScrollView showsHorizontalScrollIndicator={false}>
           {categories.map((item, index) => {
-            if(!this.isMainCategory(mainCategories, item.id))
+            if(!this.isMainCategory(mainCategories, item.id)) //is subcategory
               return <></>;
             return (
+              // (item.id!==328 && item.id!==334 && item.id!==333) ?
+              // <></>
+              // :
               <Item
                 item={item}
                 key={index}
