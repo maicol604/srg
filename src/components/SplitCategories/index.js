@@ -67,6 +67,48 @@ class SplitCategories extends Component {
     }
   };
 
+  renderRows = (items, categories) => {
+    const rows = [];
+    for (let i = 0; i < items.length; i += 3) {
+      rows.push(
+        <View key={i} style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginBottom: 10,
+        }}>
+          {items.slice(i, i + 3).map((item, index) => (
+            <TouchableOpacity
+              key={item.id}
+              style={{
+                backgroundColor: this.isActive(categories, this.state.selectedIndex, item)?'rgba(0,0,0,.1)':'rgba(0,0,0,0)', 
+                padding: 5, 
+                borderRadius: 5,
+                marginBottom: 10,
+              }}
+              onPress={()=>{this.selectCategory(this.getCatIndexById(categories, item.id))}}
+            >
+              {
+                item.image &&
+                <View
+                  style={{marginBottom: 10}}
+                >
+                  <Image
+                    source={{ uri: item.image.src }}
+                    style={{ width: 75, height: 75, borderRadius: 5 }} 
+                    resizeMode="cover"
+                  />
+                </View>
+              }
+              <Text style={{ width: 75, textAlign: 'center',fontFamily: Constants.fontFamily }}>{ item.name }</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      );
+    }
+    return rows;
+  };
+
+
   render() {
     const {
       categories,
@@ -105,49 +147,64 @@ class SplitCategories extends Component {
                 />
               </View>
             }
+
+            { categories && categories.length > 0 &&  
+            !this.isChild(categories[this.state.selectedIndex]) ?
+            <ScrollView
+              style={{
+                maxHeight: '80%',
+                marginHorizontal: 10
+              }}
+            >
+              {this.renderRows(this._getCategories(categories, categories[this.getCatFather(categories, categories[this.state.selectedIndex], this.state.selectedIndex)]), categories)}
+            </ScrollView>
+            :
+            <></>
+            }
             { categories && categories.length > 0 &&
               !this.isChild(categories[this.state.selectedIndex]) ?
-              <FlatList
-                style={{
-                  padding: 10,
-                  width: '100%',
-                  backgroundColor: 'red'
-                }}
-                contentContainerStyle = {{
-                  justifyContent: 'center',
-                  padding: 0,
-                  backgroundColor: 'blue',
-                }}
-                data={this._getCategories(categories, categories[this.getCatFather(categories, categories[this.state.selectedIndex], this.state.selectedIndex)])}//categories[this.state.selectedIndex])}
-                renderItem={({item})=>(
-                  <TouchableOpacity
-                    key={item.id}
-                    style={{
-                      backgroundColor: this.isActive(categories, this.state.selectedIndex, item)?'rgba(0,0,0,.1)':'rgba(0,0,0,0)', 
-                      padding: 5, 
-                      borderRadius: 5,
-                      marginBottom: 10,
-                    }}
-                    onPress={()=>{this.selectCategory(this.getCatIndexById(categories, item.id))}}
-                  >
-                    {
-                      item.image &&
-                      <View
-                        style={{marginBottom: 10}}
-                      >
-                        <Image
-                          source={{ uri: item.image.src }}
-                          style={{ width: 75, height: 75, borderRadius: 5 }} 
-                          resizeMode="cover"
-                        />
-                      </View>
-                    }
-                    <Text style={{ width: 75, textAlign: 'center',fontFamily: Constants.fontFamily }}>{ item.name }</Text>
-                  </TouchableOpacity>
-                )}
-                numColumns={3}
-                overScrollMode="never"
-              />
+              // <FlatList
+              //   style={{
+              //     padding: 10,
+              //     width: '100%',
+              //     backgroundColor: 'red'
+              //   }}
+              //   contentContainerStyle = {{
+              //     justifyContent: 'center',
+              //     padding: 0,
+              //     backgroundColor: 'blue',
+              //   }}
+              //   data={this._getCategories(categories, categories[this.getCatFather(categories, categories[this.state.selectedIndex], this.state.selectedIndex)])}//categories[this.state.selectedIndex])}
+              //   renderItem={({item})=>(
+              //     <TouchableOpacity
+              //       key={item.id}
+              //       style={{
+              //         backgroundColor: this.isActive(categories, this.state.selectedIndex, item)?'rgba(0,0,0,.1)':'rgba(0,0,0,0)', 
+              //         padding: 5, 
+              //         borderRadius: 5,
+              //         marginBottom: 10,
+              //       }}
+              //       onPress={()=>{this.selectCategory(this.getCatIndexById(categories, item.id))}}
+              //     >
+              //       {
+              //         item.image &&
+              //         <View
+              //           style={{marginBottom: 10}}
+              //         >
+              //           <Image
+              //             source={{ uri: item.image.src }}
+              //             style={{ width: 75, height: 75, borderRadius: 5 }} 
+              //             resizeMode="cover"
+              //           />
+              //         </View>
+              //       }
+              //       <Text style={{ width: 75, textAlign: 'center',fontFamily: Constants.fontFamily }}>{ item.name }</Text>
+              //     </TouchableOpacity>
+              //   )}
+              //   numColumns={3}
+              //   overScrollMode="never"
+              // />
+              <></>
               : 
               <ScrollView
                 horizontal
