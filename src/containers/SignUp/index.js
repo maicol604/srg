@@ -104,6 +104,7 @@ class SignUpScreen extends Component {
 
       if (customer) {
         this.setState({ isLoading: false });
+        this._onBack();
         login(customer, get(json, 'cookie'));
 
         return;
@@ -115,6 +116,15 @@ class SignUpScreen extends Component {
     toast(Languages.CanNotRegister);
   };
 
+  _onBack = () => {
+    const { onBack, goBack } = this.props;
+    if (onBack) {
+        onBack();
+    } else {
+        goBack();
+    }
+  };
+  
   validateForm = () => {
     const { username, email, password, firstName, lastName, useGeneratePass } =
       this.state;

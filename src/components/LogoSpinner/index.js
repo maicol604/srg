@@ -37,7 +37,7 @@ class LogoSpinner extends React.Component {
         toValue: 6,
         duration: 3000,
         friction: 0.5,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }),
     ]).start(() => this.doAnimation());
   }

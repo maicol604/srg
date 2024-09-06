@@ -46,6 +46,7 @@ class Item extends React.PureComponent {
         Animated.timing(this.state.widthAnimation, {
           toValue: this.widthItem,
           duration: 6000,
+          useNativeDriver: false,
         }).start(({ finished }) => {
           if (finished) {
             this.props.onNext();
