@@ -30,7 +30,7 @@ const DeliveryComponent = React.memo(props => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    defaultValues: props.address,
+    values: props.address,
     resolver: yupResolver(addAddressSchema),
   });
 

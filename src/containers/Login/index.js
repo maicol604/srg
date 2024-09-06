@@ -6,7 +6,7 @@
 
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, Platform } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
 import { WooWorker } from 'api-ecommerce';
@@ -296,41 +296,43 @@ class LoginScreen extends PureComponent {
                     /> */}
 
                     {/* {SignInWithAppleButton(styles.appleBtn, this.appleSignIn)} */}
-                    <AppleAuthentication.AppleAuthenticationButton
-                        buttonType={
-                            AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN
-                        }
-                        buttonStyle={
-                            AppleAuthentication.AppleAuthenticationButtonStyle.BLACK
-                        }
-                        cornerRadius={5}
-                        style={[styles.appleBtn, { marginVertical: 5 }]}
-                        onPress={async () => {
-                            if (isLoading) {
-                                return;
+                    {Platform.OS == 'ios' ? (
+                        <AppleAuthentication.AppleAuthenticationButton
+                            buttonType={
+                                AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN
                             }
-
-                            try {
-                                Reactotron.log('credential');
-                                const credential = await AppleAuthentication.signInAsync({
-                                    requestedScopes: [
-                                        AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
-                                        AppleAuthentication.AppleAuthenticationScope.EMAIL,
-                                    ],
-                                });
-                                // signed in
-                                this.appleSignIn(credential);
-                            } catch (e) {
-                                if (e.code === 'ERR_CANCELED') {
-                                    // handle that the user canceled the sign-in flow
-                                    // Reactotron.log('credential', e);
-                                } else {
-                                    // handle other errors
-                                    // Reactotron.log('credential', e);
+                            buttonStyle={
+                                AppleAuthentication.AppleAuthenticationButtonStyle.BLACK
+                            }
+                            cornerRadius={5}
+                            style={[styles.appleBtn, { marginVertical: 5 }]}
+                            onPress={async () => {
+                                if (isLoading) {
+                                    return;
                                 }
-                            }
-                        }}
-                    />
+
+                                try {
+                                    Reactotron.log('credential');
+                                    const credential = await AppleAuthentication.signInAsync({
+                                        requestedScopes: [
+                                            AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+                                            AppleAuthentication.AppleAuthenticationScope.EMAIL,
+                                        ],
+                                    });
+                                    // signed in
+                                    this.appleSignIn(credential);
+                                } catch (e) {
+                                    if (e.code === 'ERR_CANCELED') {
+                                        // handle that the user canceled the sign-in flow
+                                        // Reactotron.log('credential', e);
+                                    } else {
+                                        // handle other errors
+                                        // Reactotron.log('credential', e);
+                                    }
+                                }
+                            }}
+                        />
+                    ) : null}
 
                     <TouchableOpacity
                         style={Styles.Common.ColumnCenter}

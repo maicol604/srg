@@ -17,7 +17,7 @@ export default class TouchableScale extends PureComponent {
     Animated.timing(this.scaleValue, {
       toValue: scaleTo,
       duration: 300,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start();
   };
 
@@ -29,7 +29,7 @@ export default class TouchableScale extends PureComponent {
     Animated.timing(this.scaleValue, {
       toValue: 1,
       duration: 150,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start();
   };
 

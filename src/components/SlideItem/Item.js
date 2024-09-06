@@ -156,13 +156,13 @@ class Item extends React.PureComponent {
       Animated.timing(this.state.scaleAnimation, {
         toValue: 1.2,
         duration: 6000,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }),
       Animated.timing(this.state.positionAnimation, {
         toValue: 1,
         delay: 2000,
         duration: 1000,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }),
     ]).start();
   };
