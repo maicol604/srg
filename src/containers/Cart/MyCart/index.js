@@ -48,7 +48,7 @@ class MyCart extends PureComponent {
     } = this.props;
 
     let couponBtn = Languages.ApplyCoupon;
-    let colors = [Color.darkOrange, Color.darkYellow, Color.yellow];
+    let colors = ['#902726','#902726'];//[Color.darkOrange, Color.darkYellow, Color.yellow];
     const totalPrice = this.getTotalPrice();
     const finalPrice =
       discountType === 'percent'

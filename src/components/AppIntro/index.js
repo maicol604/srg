@@ -65,7 +65,7 @@ class AppIntro extends PureComponent {
               <Text style={{...CustomStyles.buttonText}}>de 18 años.</Text>
             </TouchableOpacity>
             <TouchableOpacity style={{...CustomStyles.button}} onPress={()=>BackHandler.exitApp()}>
-              <Text style={{...CustomStyles.buttonText}}>No, soy mayor</Text>
+              <Text style={{...CustomStyles.buttonText}}>No soy mayor</Text>
               <Text style={{...CustomStyles.buttonText}}>de 18 años.</Text>
               </TouchableOpacity>
           </View>

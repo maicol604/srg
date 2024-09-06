@@ -107,7 +107,7 @@ export default StyleSheet.create({
   textTab: {
     fontFamily: Constants.fontHeader,
     color: 'rgba(183, 196, 203, 1)',
-    fontSize: 16,
+    fontSize: 14,
   },
   tabButtonHead: {
     position: 'absolute',

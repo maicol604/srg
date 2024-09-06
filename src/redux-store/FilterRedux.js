@@ -16,7 +16,7 @@ const defaultState = {
   category: null,
   brand: null,
   tag: null,
-  price: 2000,
+  price: 200,
 };
 
 export const reducer = handleActions(

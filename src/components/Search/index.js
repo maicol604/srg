@@ -127,7 +127,7 @@ class Search extends PureComponent {
             <View style={styles.more}>
               <FlatButton
                 name="arrow-down"
-                text={isFetching ? 'LOADING...' : 'MORE'}
+                text={isFetching ? 'CARGANDO...' : 'VER MÁS'}
                 load={this.nextPosts}
               />
             </View>

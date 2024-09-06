@@ -126,7 +126,7 @@ export default {
     'Hemos encontrado un error al procesar tu pedido. La transacción no se ha completado. Por favor intenta de nuevo',
   OrderTip:
     'Consejo: Puedes rastrear el estado de tu pedido en la sección "Mis Pedidos" del menú lateral',
-  Delivery: 'Entrega',
+  Delivery: 'Dirección',
   Payment: 'Pago',
   Complete: 'Completar',
   EnterYourFirstName: 'Ingresa tu Nombre',
@@ -262,6 +262,7 @@ export default {
   profileDetail: 'Detalles del Perfil',
   firstName: 'Nombre',
   lastName: 'Apellido',
+  addAddress: 'Añadir dirección',
 
   // Horizontal
   featureProducts: 'Productos Destacados',

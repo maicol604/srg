@@ -12,7 +12,7 @@ export default {
    * Step 1: change to your website URL and the wooCommerce API consumeKey
    */
   WooCommerce: {
-    url: 'https://app.saborruralgalicia.com',
+    url: 'https://saborruralgalicia.com',
     consumerKey,
     consumerSecret,
   },
@@ -34,8 +34,8 @@ export default {
   HomeCategoriesBanner: [
     {
       height: 160,
-      category: 298,
-      label: "Cestas Gourmet",
+      category: 328,
+      label: "DO",
       imageMode: "cover",
       type: "bannerImage",
       title: "Descubre cada producto por su",
@@ -44,8 +44,8 @@ export default {
     },
     {
       height: 160,
-      category: 41,
-      label: "Drinks",
+      category: 333,
+      label: "Productores",
       imageMode: "cover",
       type: "bannerImage",
       title: "Explora las mejores bodegas y",
@@ -54,8 +54,8 @@ export default {
     },
     {
       height: 160,
-      category: 43,
-      label: "Cake Shop",
+      category: 315,
+      label: "Vinos",
       imageMode: "cover",
       type: "bannerImage",
       title: "Selecciona tu vino favorito",
@@ -243,29 +243,29 @@ export default {
         routeName: 'Home',
         icon: Icons.MaterialCommunityIcons.Home,
       },
-      {
-        text: 'News',
-        routeName: 'NewsScreen',
-        icon: Icons.MaterialCommunityIcons.News,
-      },
-      {
-        text: 'contactus',
-        routeName: 'CustomPage',
-        params: {
-          id: 10941,
-          title: 'contactus',
-          url: 'https://saborruralgalicia.com/contactanos/'
-        },
-        icon: Icons.MaterialCommunityIcons.Pin,
-      },
-      {
-        text: 'About',
-        routeName: 'CustomPage',
-        params: {
-          url: 'https://saborruralgalicia.com/que-es-sabor-rural/',
-        },
-        icon: Icons.MaterialCommunityIcons.Email,
-      },
+      // {
+      //   text: 'News',
+      //   routeName: 'NewsScreen',
+      //   icon: Icons.MaterialCommunityIcons.News,
+      // },
+      // {
+      //   text: 'contactus',
+      //   routeName: 'CustomPage',
+      //   params: {
+      //     id: 10941,
+      //     title: 'contactus',
+      //     url: 'https://saborruralgalicia.com/contactanos/'
+      //   },
+      //   icon: Icons.MaterialCommunityIcons.Pin,
+      // },
+      // {
+      //   text: 'About',
+      //   routeName: 'CustomPage',
+      //   params: {
+      //     url: 'https://saborruralgalicia.com/que-es-sabor-rural/',
+      //   },
+      //   icon: Icons.MaterialCommunityIcons.Email,
+      // },
     ],
   },
 
@@ -298,38 +298,38 @@ export default {
     // {
     //   label: 'DarkTheme',
     // },
-    {
-      label: 'contactus',
-      routeName: 'CustomPage',
-      params: {
-        id: 10941,
-        title: 'contactus',
-        url: 'https://saborruralgalicia.com/contactanos/'
-      },
-    },
-    {
-      label: 'Privacy',
-      routeName: 'CustomPage',
-      params: {
-        url: 'https://saborruralgalicia.com/politica-privacidad/',
-      },
-    },
-    {
-      label: 'termCondition',
-      routeName: 'CustomPage',
-      params: {
-        url: 'https://saborruralgalicia.com/condiciones-compra/',
-      },
-    },
-    {
-      label: 'About',
-      routeName: 'CustomPage',
-      params: {
-        id: 10939,
-        title: 'About',
-        url: 'https://saborruralgalicia.com/que-es-sabor-rural/',
-      },
-    },
+    // {
+    //   label: 'contactus',
+    //   routeName: 'CustomPage',
+    //   params: {
+    //     id: 10941,
+    //     title: 'contactus',
+    //     url: 'https://saborruralgalicia.com/contactanos/'
+    //   },
+    // },
+    // {
+    //   label: 'Privacy',
+    //   routeName: 'CustomPage',
+    //   params: {
+    //     url: 'https://saborruralgalicia.com/politica-privacidad/',
+    //   },
+    // },
+    // {
+    //   label: 'termCondition',
+    //   routeName: 'CustomPage',
+    //   params: {
+    //     url: 'https://saborruralgalicia.com/condiciones-compra/',
+    //   },
+    // },
+    // {
+    //   label: 'About',
+    //   routeName: 'CustomPage',
+    //   params: {
+    //     id: 10939,
+    //     title: 'About',
+    //     url: 'https://saborruralgalicia.com/que-es-sabor-rural/',
+    //   },
+    // },
   ],
 
   // Homepage Layout setting
@@ -387,9 +387,9 @@ export default {
   },
 
   DefaultCountry: {
-    code: 'en',
+    code: 'es',
     RTL: false,
-    language: 'English',
+    language: 'Spanish',
     countryCode: 'ES',
     hideCountryList: false, // when this option is try we will hide the country list from the checkout page, default select by the above 'countryCode'
   },

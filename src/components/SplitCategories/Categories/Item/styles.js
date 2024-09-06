@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     paddingVertical: 15,
-    paddingHorizontal: 8,
+    paddingHorizontal: 4,
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',

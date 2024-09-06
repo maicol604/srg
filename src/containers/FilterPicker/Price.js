@@ -32,7 +32,7 @@ class Price extends React.PureComponent {
     return (
       <View style={styles.priceContainer}>
         <View style={styles.priceView}>
-          <Text style={styles.titleSection(text)}>Price</Text>
+          <Text style={styles.titleSection(text)}>Precio</Text>
           <Text style={styles.price(primary)}>
             {Tools.getCurrencyFormatted(value)}
           </Text>

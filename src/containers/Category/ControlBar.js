@@ -30,27 +30,27 @@ class ControlBar extends React.Component {
     };
     this.options = [
       {
-        title: 'Sort by Date descending',
+        title: 'Ordenar por Fecha descendente',
         order: 'desc',
         orderby: 'date',
       },
       {
-        title: 'Sort by Date ascending',
+        title: 'Ordenar por Fecha ascendente',
         order: 'asc',
         orderby: 'date',
       },
       {
-        title: 'Sort by Name descending',
+        title: 'Ordenar por Nombre descendente',
         order: 'desc',
         orderby: 'title',
       },
       {
-        title: 'Sort by Name ascending',
+        title: 'Ordenar por Nombre ascendente',
         order: 'asc',
         orderby: 'title',
       },
       {
-        title: 'Cancel',
+        title: 'Cancelar',
         actionStyle: 'cancel',
         isCancel: true,
       },

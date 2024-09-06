@@ -133,7 +133,8 @@ class LoginScreen extends PureComponent {
         if (!json) {
             this.stopAndToast(Languages.GetDataError);
         } else if (json.error || json.message) {
-            this.stopAndToast(json.error || json.message);
+            // this.stopAndToast(json.error || json.message);
+            this.stopAndToast('Credenciales inválidas. Verifica tu usuario y contraseña.');
         } else {
             if (has(json, 'user.id')) {
                 let customers = await WooWorker.getCustomerById(get(json, 'user.id'));

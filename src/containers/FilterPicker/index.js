@@ -13,10 +13,10 @@ import Section from './Section';
 import Device from '@app/common/Device';
 
 const sections = [
-  { title: 'Sub Category', type: 'category', storeName: 'category' },
+  { title: 'Subcategoria', type: 'category', storeName: 'category' },
   // { title: "Brands", type: "brand", storeName: "brands" },
-  { title: 'Tags', type: 'tag', storeName: 'tags' },
-  { title: 'Price', type: 'price', storeName: 'price' },
+  { title: 'Etiqueta', type: 'tag', storeName: 'tags' },
+  { title: 'Precio', type: 'price', storeName: 'price' },
 ];
 
 class FilterPicker extends React.PureComponent {
@@ -30,6 +30,8 @@ class FilterPicker extends React.PureComponent {
   };
 
   _onChangeFilter = (type, selected) => {
+    console.log('here', this.filters)
+    // if(this.filters?.categories)
     this.filters = {
       ...this.filters,
       [type]: selected,
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
   },
   selectContainer: {
     padding: 15,
-    backgroundColor: 'rgba(0,145,234,1)',
+    backgroundColor: '#902726',
     flex: 1,
     color: 'rgba(0,0,0,1)',
   },
@@ -137,10 +139,12 @@ const styles = StyleSheet.create({
     padding: 15,
     flex: 1,
     color: 'rgba(0,0,0,1)',
+    backgroundColor: 'transparent',
   },
   cancelText: {
     color: 'white',
     fontSize: 14,
+    color: '#902726'
   },
   row: {
     flexDirection: 'row',

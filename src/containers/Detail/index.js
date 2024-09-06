@@ -145,7 +145,7 @@ class Detail extends PureComponent {
 
   share = () => {
     Share.share({
-      message: this.props.product.description.replace(/(<([^>]+)>)/gi, ''),
+      message: this.props.product.permalink,//this.props.product.description.replace(/(<([^>]+)>)/gi, ''),
       url: this.props.product.permalink,
       title: this.props.product.name,
     });
@@ -541,6 +541,7 @@ class Detail extends PureComponent {
       <View>
         {typeof this.productAttributes !== 'undefined' &&
           this.productAttributes.map((attribute, attrIndex) => (
+            attribute.id!==1 ?
             <View
               // eslint-disable-next-line react/no-array-index-key
               key={`attr_${attrIndex}`}
@@ -556,6 +557,8 @@ class Detail extends PureComponent {
                 </View>
               )}
             </View>
+            :
+            <></>
           ))}
       </View>
     );

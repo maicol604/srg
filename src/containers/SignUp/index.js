@@ -96,7 +96,8 @@ class SignUpScreen extends Component {
     }
 
     if (json.error) {
-      return this.stopAndToast(json.error);
+      // return this.stopAndToast(json.error);
+      return this.stopAndToast('La dirección de correo electrónico ya está en uso. Por favor, utiliza otra o intenta iniciar sesión.');
     }
 
     if (has(json, 'user_id')) {

@@ -117,7 +117,7 @@ class ProductList extends Component {
           <AnimatedHeader
             scrollY={this.state.scrollY}
             hideIcon
-            label={config.name == "featureProducts" ? "Feature Products": config.name}
+            label={config.name == "featureProducts" ? "Productos Destacados": config.name}
             navigation={navigation}
           />
         )}
@@ -144,7 +144,7 @@ class ProductList extends Component {
                   {isFetching ? (
                     <Spinkit />
                   ) : (
-                    <Text style={styles.footerBtnText}>{isRefreshing ? 'Loading...' : Languages.LoadMore}</Text>
+                    <Text style={styles.footerBtnText}>{isRefreshing ? 'CARGANDO...' : Languages.LoadMore}</Text>
                   )}
                 </TouchableOpacity>
               </View>
