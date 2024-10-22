@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 import { FlatList, View } from 'react-native';
 import find from 'lodash/find';
 
+import Navigation, { navigationRef } from '@navigation';
+import { ROUTER } from '@app/navigation/constants';
+import { connect } from 'react-redux';
+
 import {
   Constants,
   Images,
@@ -97,6 +101,7 @@ class HorizonList extends PureComponent {
   };
 
   showProductsByCategory = config => {
+    // console.log("conf", config)
     const {
       onShowAll,
       index,
@@ -111,6 +116,33 @@ class HorizonList extends PureComponent {
     setSelectedCategory(selectedCategory);
     fetchProductsByCollections(config.category, config.tag, this.page, index);
     onShowAll(config, index);
+  };
+
+  _handlePress = (nitem, section) => {
+    const item = this.props.categories.list.find((value)=>(value.id===nitem.category))
+    const { setSelectedCategory } = this.props;
+    if (section) {
+      const params = {
+        ...item, //actual
+        mainCategory: item, //parent
+      };
+      setSelectedCategory(params);
+      this.goToScreen(ROUTER.CATEGORY, params, false);
+    } else {
+      this.goToScreen(item.routeName, item.params, false);
+    }
+  };
+
+  goToScreen = (routeName, params) => {
+    if (!navigationRef?.current) {
+      return toast('Cannot navigate');
+    }
+
+    // fix the navigation for Custom page 
+    if (routeName) {
+      navigationRef?.current?.navigate(routeName, params);
+    }
+
   };
 
   onViewProductScreen = product => {
@@ -171,7 +203,7 @@ class HorizonList extends PureComponent {
             categories={this.props.list}
             items={data}
             type={config.theme}
-            onPress={this.showProductsByCategory}
+            onPress={(e)=>{this._handlePress(e, e)}}//{this.showProductsByCategory}
           />
         );
       case Constants.Layout.BannerSlider:
@@ -250,5 +282,5 @@ class HorizonList extends PureComponent {
     );
   }
 }
-
-export default withTheme(HorizonList);
+const mapStateToProps = state => ({categories: state.categories});
+export default withTheme(connect(mapStateToProps)(HorizonList));

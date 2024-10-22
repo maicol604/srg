@@ -45,7 +45,7 @@ class Price extends React.PureComponent {
           maximumTrackTintColor="#bdc2cc"
           thumbTintColor={Color.primary}
           minimumValue={0}
-          maximumValue={1000}
+          maximumValue={200}
         />
       </View>
     );

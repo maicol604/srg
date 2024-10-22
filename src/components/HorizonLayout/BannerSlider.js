@@ -15,7 +15,7 @@ export default class BannerLarge extends PureComponent {
           currency={currency}
           onViewPost={onViewPost}
           config={config}
-          viewAll={viewAll}
+          viewAll={()=>{}}//viewAll}
         />
       </ScrollView>
     );

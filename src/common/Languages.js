@@ -185,7 +185,7 @@ export default {
   LastName: 'Apellido',
   Address: 'Dirección',
   City: 'Ciudad',
-  State: 'Estado',
+  State: 'Provincia',
   NotSelectedError: 'Por favor elige uno',
   Postcode: 'Código Postal',
   Country: 'País',

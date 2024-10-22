@@ -30,7 +30,6 @@ class FilterPicker extends React.PureComponent {
   };
 
   _onChangeFilter = (type, selected) => {
-    console.log('here', this.filters)
     // if(this.filters?.categories)
     this.filters = {
       ...this.filters,

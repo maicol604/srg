@@ -7,6 +7,7 @@ import {
   ScrollView,
   Animated,
   FlatList,
+  Text,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { isObject } from 'lodash';
@@ -20,8 +21,10 @@ import FilterPicker from '@containers/FilterPicker';
 import ProductRow from './ProductRow';
 import ControlBar from './ControlBar';
 import styles from './styles';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 class CategoryScreen extends PureComponent {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -68,7 +71,7 @@ class CategoryScreen extends PureComponent {
       props.fetchProductsByCategoryId(
         null,
         this.pageNumber++,
-        20,
+        100,
         this.newFilters,
       );
     }
@@ -153,10 +156,22 @@ class CategoryScreen extends PureComponent {
     );
   }
 
+  handleScroll = (event) => {
+    const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
+    
+    const isCloseToBottom =
+      layoutMeasurement.height + contentOffset.y >= contentSize.height - 20;
+  
+    if (isCloseToBottom) {
+      console.log('Llegaste al final del scroll', this.props.products.length);
+      this.onEndReached();
+    }
+  };
+
   renderList = data => {
     const { products, displayMode } = this.props;
     const isCardMode = displayMode == DisplayMode.CardMode;
-
+    console.log("data length", data.length)
     return (
       <FlatList
         keyExtractor={(item, index) => `${item.id}`}
@@ -175,6 +190,9 @@ class CategoryScreen extends PureComponent {
         initialListSize={6}
         pageSize={2}
         renderScrollComponent={this.renderScrollComponent}
+        initialNumToRender={100}
+        onScroll={this.handleScroll}
+
       />
     );
   };
@@ -238,14 +256,14 @@ class CategoryScreen extends PureComponent {
   };
 
   onEndReached = () => {
-    const { products, fetchProductsByCategoryId, selectedCategory } =
-      this.props;
+    const { products, fetchProductsByCategoryId, selectedCategory } = this.props;
+    
     if (!products.isFetching && products.stillFetch) {
       if (this.newFilters) {
         fetchProductsByCategoryId(
           selectedCategory.id,
           this.pageNumber++,
-          20,
+          100,
           this.newFilters,
         );
       } else {
@@ -262,7 +280,7 @@ class CategoryScreen extends PureComponent {
     fetchProductsByCategoryId(
       selectedCategory.id,
       this.pageNumber++,
-      20,
+      100,
       this.newFilters,
     );
   };
@@ -295,7 +313,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     fetchProductsByCategoryId: (
       categoryId,
       page,
-      per_page = 20,
+      per_page = 100,
       filters = {},
     ) => {
       if (!netInfo.isConnected) return toast(Languages.noConnection);

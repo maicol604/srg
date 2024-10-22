@@ -409,8 +409,9 @@ class Detail extends PureComponent {
           <View style={[styles.description, { backgroundColor: lineColor }]}>
             <WebView
               textColor={text}
-              html={`<p style="text-align: left">${product.description}</p>`}
+              html={`${product.description}`}
             />
+            {/* <Text>{product.description}</Text> */}
           </View>
         )}
         {this.state.tabIndex === 1 && (
