@@ -47,19 +47,20 @@ export default StyleSheet.create({
   },
   panelTwo: {
     position: 'relative',
-    width: width / 2,
+    width: width / 2 - 8,
     alignItems: 'center',
-    justifyContent: 'space-around',
+    // justifyContent: 'space-around',
     marginBottom: 12,
   },
   imagePanelTwo: {
     position: 'relative',
-    width: width / 2 - 30,
-    height: width / 3,
+    width: width / 2 - 20,
+    height: width / 2,
     borderRadius: 3,
   },
   nameTwo: {
     fontSize: 13,
+    lineHeight: Platform.OS == 'android' ? 18 : 18,
     fontWeight: '400',
     width: width / 2 - 30,
     marginLeft: 8,
@@ -317,6 +318,7 @@ export default StyleSheet.create({
   },
   nameThree: {
     fontSize: 13,
+    lineHeight: Platform.OS == 'android' ? 18 : 18,
     width: width / 3 - 10,
     marginLeft: 8,
     marginRight: 8,

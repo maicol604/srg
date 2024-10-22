@@ -2,7 +2,8 @@
 
 const Images = {
   Logo: require('@images/logo.png'),
-  defaultAvatar: require('@images/default_avatar.png'),
+  // defaultAvatar: require('@images/default_avatar.png'),
+  defaultAvatar: require('@images/default_avatar.jpg'),
   categoryPlaceholder: require('@images/category_placehodler.png'),
   splashScreen: require('@images/splash_screen.png'),
 

@@ -18,6 +18,11 @@ class SearchScreen extends PureComponent {
   }
 
   render() {
+    const {
+      theme: {
+        colors: { placeholder},
+      },
+    } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.navi}>
@@ -27,7 +32,7 @@ class SearchScreen extends PureComponent {
           <TextInput
             style={styles.inputSearch}
             placeholder={Languages.SearchPlaceHolder}
-            placeholderTextColor="#cccccc"
+            placeholderTextColor={placeholder}
           />
         </View>
       </View>

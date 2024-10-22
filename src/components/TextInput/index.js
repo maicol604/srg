@@ -1,3 +1,4 @@
+import { Constants } from '@common';
 import { isEmpty } from 'lodash';
 import React from 'react';
 import { StyleSheet, TextInput, View, Text } from 'react-native';
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
   },
   label: {
     marginBottom: 3,
+    fontFamily: Constants.fontFamilyBold
   },
   textinput: {
     height: 40,
@@ -53,6 +55,7 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     borderRadius: 20,
     backgroundColor: '#F6F7F9',
+    fontFamily: Constants.fontFamily
   },
   error: {
     color: 'red',

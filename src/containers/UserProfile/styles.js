@@ -1,5 +1,6 @@
 /** @format */
 
+import { Constants } from '@common';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -13,8 +14,9 @@ export default StyleSheet.create({
   headerSection: {
     paddingHorizontal: 20,
     paddingVertical: 10,
-    fontSize: 13,
+    fontSize: 14,
     color: '#4A4A4A',
-    fontWeight: '600',
+    fontFamily: Constants.fontFamilyBold,
+    textTransform:'capitalize'
   },
 });

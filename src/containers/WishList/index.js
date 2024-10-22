@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { SwipeRow } from 'react-native-swipe-list-view';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-import { Constants, Languages, withTheme, Config } from '@common';
+import { Constants, Languages, withTheme, Config, Color } from '@common';
 import { Button, ProductItem, AnimatedHeader } from '@components';
 import WishListEmpty from './Empty';
 import styles from './styles';
@@ -114,7 +114,7 @@ class WishList extends PureComponent {
           scrollEventThrottle={1}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
-            { useNativeDriver: true },
+            { useNativeDriver: false } // Use false for non-animated styles
           )}
         >
           <View style={styles.list}>
@@ -146,8 +146,8 @@ class WishList extends PureComponent {
         >
           <Button
             text={Languages.CleanAll}
-            style={[styles.button, { backgroundColor: '#ff1744' }]}
-            textStyle={styles.buttonText}
+            style={[styles.button, { backgroundColor: Color.borderColor }]}
+            textStyle={[styles.buttonText, { color: Color.Text}]}
             onPress={this.cleanAll}
           />
           {!Config.Affiliate.enable && (
@@ -173,8 +173,8 @@ const mapStateToProps = state => {
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const CartRedux = require('./../../redux/CartRedux');
-  const WishListRedux = require('./../../redux/WishListRedux');
+  const CartRedux = require('./../../redux-store/CartRedux');
+  const WishListRedux = require('./../../redux-store/WishListRedux');
   return {
     ...ownProps,
     ...stateProps,

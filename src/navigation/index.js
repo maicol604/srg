@@ -26,6 +26,7 @@ import UserProfileScreen from './UserProfileScreen';
 import FiltersScreen from './FiltersScreen';
 import AddressScreen from './AddressScreen';
 import AddAddressScreen from './AddAddressScreen';
+import Languages from '@app/common/Languages';
 
 // import TransitionConfig from "./TransitionConfig";
 import { getNavigationOptions } from './utils';
@@ -90,7 +91,10 @@ const HomeStack = withTheme(({ theme }) => {
       screenOptions={{
         gesturesEnabled: true,
         // gestureResponseDistance: { horizontal: width / 2 },
-        headerShown: false,
+        headerShown: true,
+        headerStyle: {
+          height: 100, // Set your desired height here
+        },
       }}
     >
       <HomeNavigator.Screen
@@ -372,14 +376,16 @@ const AppNavigator = parentProps => {
         name={ROUTER.ADDRESS}
         component={AddressScreen}
         options={props => {
-          return getNavigationOptions({ ...props, theme });
+          const p = getNavigationOptions({ ...props, theme });
+          return {...p, headerTitle: Languages.Address};
         }}
       />
       <AppStack.Screen
         name={ROUTER.ADD_ADDRESS}
         component={AddAddressScreen}
         options={props => {
-          return getNavigationOptions({ ...props, theme });
+          const p = getNavigationOptions({ ...props, theme });
+          return {...p, headerTitle: Languages.addAddress};
         }}
       />
       <AppStack.Screen

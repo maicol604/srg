@@ -1,5 +1,6 @@
 /** @format */
 
+import { Constants } from '@common';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -17,9 +18,11 @@ export default StyleSheet.create({
   label: {
     color: '#919191',
     fontSize: 14,
+    fontFamily: Constants.fontFamily
   },
   value: {
     fontSize: 14,
+    fontFamily: Constants.fontFamilyBold
   },
   divider: {
     height: 0.5,

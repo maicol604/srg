@@ -53,7 +53,8 @@ class UserProfile extends PureComponent {
           <Switch
             onValueChange={this._handleSwitchNotification}
             value={this.state.pushNotification}
-            trackColor={Color.blackDivide}
+            trackColor={{false: Color.blackDivide, true: Color.categoryOpacity }}
+            thumbColor={Color.primary}
           />
         );
       }
@@ -62,7 +63,8 @@ class UserProfile extends PureComponent {
           <Switch
             onValueChange={this._onToggleDarkTheme}
             value={isDarkTheme}
-            trackColor={Color.blackDivide}
+            trackColor={{false: Color.blackDivide, true: Color.categoryOpacity }}
+            thumbColor={Color.primary}
           />
         );
       }
@@ -196,8 +198,8 @@ const mapStateToProps = ({ user, language, currency, wishList, app }) => ({
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const { actions: CurrencyActions } = require('@redux/CurrencyRedux');
-  const { toggleDarkTheme } = require('@redux/AppRedux');
+  const { actions: CurrencyActions } = require('@app/redux-store/CurrencyRedux');
+  const { toggleDarkTheme } = require('@app/redux-store/AppRedux');
   return {
     ...ownProps,
     ...stateProps,

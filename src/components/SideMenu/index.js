@@ -126,7 +126,7 @@ export default class SideMenu extends React.PureComponent {
     });
   }
 
-  componentWillReceiveProps(props: Props): void {
+  UNSAFE_componentWillReceiveProps(props: Props): void {
     if (
       typeof props.isOpen !== 'undefined' &&
       this.isOpen !== props.isOpen &&
@@ -323,6 +323,7 @@ SideMenu.defaultProps = {
     Animated.spring(prop, {
       toValue: value,
       friction: 8,
+      useNativeDriver: false
     }),
   onAnimationComplete: () => {},
   isOpen: false,

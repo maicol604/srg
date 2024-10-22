@@ -18,19 +18,21 @@ export default StyleSheet.create({
     color: text,
     width: Constants.Dimension.ScreenWidth(0.6),
     paddingHorizontal: 10,
+    fontFamily: Constants.fontFamily
   }),
   title: text => ({
     marginBottom: 4,
     color: text,
     width: Constants.Dimension.ScreenWidth(0.6),
     textTransform: 'uppercase',
-    fontWeight: 'bold',
+    fontFamily: Constants.fontHeader,
     paddingHorizontal: 10,
   }),
   text: text => ({
     marginBottom: 4,
     color: text,
     alignSelf: 'center',
+    fontFamily: Constants.fontHeader
   }),
   header: {
     marginTop: 20,
@@ -85,4 +87,7 @@ export default StyleSheet.create({
   addressContainer: {
     alignItems: I18nManager.isRTL ? 'flex-end' : 'flex-start',
   },
+  buttonText: {
+    fontFamily: Constants.fontFamilyBold
+  }
 });

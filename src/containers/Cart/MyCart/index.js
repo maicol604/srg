@@ -41,14 +41,14 @@ class MyCart extends PureComponent {
     const { cartItems, isFetching, discountType } = this.props;
     const {
       theme: {
-        colors: { text, lineColor },
+        colors: { text, lineColor, placeholder},
         dark,
       },
       currency,
     } = this.props;
 
     let couponBtn = Languages.ApplyCoupon;
-    let colors = [Color.darkOrange, Color.darkYellow, Color.yellow];
+    let colors = ['#902726','#902726'];//[Color.darkOrange, Color.darkYellow, Color.yellow];
     const totalPrice = this.getTotalPrice();
     const finalPrice =
       discountType === 'percent'
@@ -105,6 +105,7 @@ class MyCart extends PureComponent {
             <View style={styles.row}>
               <TextInput
                 value={this.state.coupon}
+                placeholderTextColor={placeholder}
                 placeholder={Languages.CouponPlaceholder}
                 onChangeText={coupon => this.setState({ coupon })}
                 style={[
@@ -228,8 +229,8 @@ const mapStateToProps = ({ carts, products, currency }) => {
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/CartRedux');
-  const productActions = require('@redux/ProductRedux').actions;
+  const { actions } = require('@app/redux-store/CartRedux');
+  const productActions = require('@app/redux-store/ProductRedux').actions;
   return {
     ...ownProps,
     ...stateProps,

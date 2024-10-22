@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     right: -10,
     height: 18,
     minWidth: 18,
-    backgroundColor: Color.error,
+    backgroundColor: Color.tabbarTint,
     borderRadius: 9,
   },
   number: {

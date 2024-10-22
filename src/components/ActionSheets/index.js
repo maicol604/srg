@@ -14,7 +14,7 @@ import {
   Dimensions,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import { ViewPropTypes } from 'deprecated-react-native-prop-types';
+import { ViewPropTypes, TextPropTypes } from 'deprecated-react-native-prop-types';
 
 const { height } = Dimensions.get('window');
 
@@ -30,16 +30,16 @@ const kDefaultArrayIsEmptyErrorDesc =
 export default class ActionSheet extends Component {
   static propTypes = {
     titles: PropTypes.array.isRequired,
-    defaultValue: PropTypes.string.isRequired,
+    defaultValue: PropTypes.string,
     onPress: PropTypes.func,
     separateHeight: PropTypes.number,
     separateColor: PropTypes.string,
     backgroundColor: PropTypes.string,
     containerStyle: ViewPropTypes.style,
-    defaultTextStyle: Text.propTypes.style,
-    activeTextStyle: Text.propTypes.style,
-    cancelTextStyle: Text.propTypes.style,
-    destructiveTextStyle: Text.propTypes.style,
+    defaultTextStyle: TextPropTypes.style,
+    activeTextStyle: TextPropTypes.style,
+    cancelTextStyle: TextPropTypes.style,
+    destructiveTextStyle: TextPropTypes.style,
     textViewStyle: ViewPropTypes.style,
   };
 
@@ -161,6 +161,7 @@ export default class ActionSheet extends Component {
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
       duration: kDefaultAnimateDuration,
+      useNativeDriver: false,
     }).start(event => {
       this.setState({
         visible: false,

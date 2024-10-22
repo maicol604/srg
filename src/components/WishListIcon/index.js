@@ -74,7 +74,9 @@ class WishListIcon extends Component {
           styles.imageButton,
           clicked && { tintColor: Color.heartActiveWishList },
         ]}
-        buttonStyle={[styles.buttonStyle, this.props.style && this.props.style]}
+        buttonStyle={[styles.buttonStyle, this.props.style && this.props.style, {
+          backgroundColor: 'rgba(183, 186, 189, 0.2)', padding: 6, paddingTop: 7, borderRadius: 50
+        }, clicked && { backgroundColor: Color.categoryOpacity }]}
         onPress={this.addToWishList.bind(this)}
       />
     );
@@ -86,7 +88,7 @@ const mapStateToProps = ({ wishList }) => ({ wishList });
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { netInfo } = stateProps;
   const { dispatch } = dispatchProps;
-  const WishListRedux = require('@redux/WishListRedux');
+  const WishListRedux = require('@app/redux-store/WishListRedux');
   return {
     ...ownProps,
     ...stateProps,

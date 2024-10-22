@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import * as AddressRedux from '@redux/AddressRedux';
+import * as AddressRedux from '@app/redux-store/AddressRedux';
 
 import { TextInput, SelectCountry } from '@components';
 import { Languages, withTheme, Config } from '@common';

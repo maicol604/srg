@@ -4,6 +4,7 @@ import { Constants, Styles } from '@common';
 import { Platform } from 'react-native';
 import Color from '../../common/Color';
 import Device from '../../common/Device';
+import { getBottomSpace } from 'react-native-iphone-x-helper';
 
 export default {
   container: {
@@ -14,6 +15,7 @@ export default {
   content: {
     marginTop: 40,
     flex: 1,
+    paddingBottom: getBottomSpace()
   },
   row: {
     flexDirection: 'row',
@@ -37,6 +39,7 @@ export default {
     marginTop: 10,
     marginBottom: 10,
     color: '#000',
+    fontFamily: Constants.fontFamily
   },
   btnFilter: {
     height: 40,
@@ -65,10 +68,12 @@ export default {
   filterText: {
     fontSize: 16,
     color: '#fff',
+    fontFamily: Constants.fontFamilyBold
   },
   clearFilter: {
     fontSize: 16,
     color: Color.primary,
+    fontFamily: Constants.fontFamily
   },
   btnClear: {
     marginBottom: 20,

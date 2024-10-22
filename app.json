@@ -1,36 +1,44 @@
 {
   "expo": {
-    "name": "Sabor rural galicia",
+    "name": "Sabor Rural Galicia",
     "slug": "mstore",
     "version": "5.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon-srg.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#212121"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
+      "bundleIdentifier": "com.app.srgstore",
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
+        "foregroundImage": "./assets/icon-srg.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.mrluyx.expo44"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+      "package": "com.mrluyx.expo44",
+      "versionCode": 1
     },
     "extra": {
       "eas": {
         "projectId": "e285b3c1-622f-4c89-8432-530473dd8fec"
       }
-    }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { PureComponent } from 'react';
-import { View, Image, Dimensions } from 'react-native';
+import { View, Image, Dimensions, Text } from 'react-native';
 import HTML from 'react-native-render-html';
 import { Tools, Constants } from '@common';
 

@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     fontFamily: Constants.fontFamily,
   },
   activeTextStyle: {
-    color: '#5ECE7B',
+    color: '#902726',
     fontSize: 16,
     fontFamily: Constants.fontFamily,
   },

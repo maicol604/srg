@@ -3,7 +3,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Text, TouchableOpacity } from 'react-native';
-import TimeAgo from 'react-native-timeago';
+import TimeAgo from '@custom/react-native-timeago';
 import { WishListIcon, ImageCache, ProductPrice, Rating } from '@components';
 import { Constants, withTheme } from '@common';
 import css from './style';
@@ -19,7 +19,7 @@ class ColumnLayout extends PureComponent {
   };
 
   render() {
-    const { imageURL, post, type, title, date, viewPost } = this.props;
+    const { imageURL, post, type, title, date, viewPost, index } = this.props;
     const {
       theme: {
         colors: { background, text },
@@ -30,7 +30,10 @@ class ColumnLayout extends PureComponent {
     return (
       <TouchableOpacity
         activeOpacity={0.9}
-        style={css.panelTwo}
+        style={[css.panelTwo,{
+          // marginRight: index % 2 == 0 ? 10 : 0,
+          marginLeft: index % 2 == 0 ? 10 : 0
+        }]}
         onPress={viewPost}
       >
         <ImageCache uri={imageURL} style={css.imagePanelTwo} />
@@ -47,7 +50,7 @@ class ColumnLayout extends PureComponent {
         {typeof type === 'undefined' && (
           <WishListIcon
             product={post}
-            style={Constants.RTL ? { left: 20 } : { right: 25 }}
+            style={Constants.RTL ? { left: 20 } : { right: 15 }}
           />
         )}
         {typeof type === 'undefined' && <Rating rating={post.average_rating} />}

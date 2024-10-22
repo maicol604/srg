@@ -72,6 +72,7 @@ export default StyleSheet.create({
     paddingHorizontal: 15,
     borderWidth: 1,
     borderColor: Color.lightgrey,
+    fontFamily: Constants.fontFamily
   },
   btnApply: {
     width: 100,
@@ -84,6 +85,7 @@ export default StyleSheet.create({
     color: 'white',
     position: 'absolute',
     backgroundColor: 'transparent',
+    fontFamily: Constants.fontFamily
   },
   couponMessage: {
     marginTop: 15,

@@ -16,13 +16,13 @@ const { width, height, scale } = Dimensions.get('window'),
 
 export default StyleSheet.create({
   imageButton: {
-    width: 15,
-    height: 15,
+    width: 13,
+    height: 13,
   },
   buttonStyle: {
     position: 'absolute',
-    right: 10,
-    top: 5,
+    right: 8,
+    top: 8,
     zIndex: 9999,
   },
 });

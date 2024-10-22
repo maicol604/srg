@@ -46,7 +46,7 @@ export default StyleSheet.create({
   tagHeader: {
     fontSize: 18,
     color: '#666',
-    letterSpacing: 2,
+    letterSpacing: 1,
     fontFamily: Constants.fontHeader,
   },
 });

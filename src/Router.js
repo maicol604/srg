@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StatusBar, I18nManager } from 'react-native';
+import { View, StatusBar, I18nManager, Text } from 'react-native';
 import { WooWorker } from 'api-ecommerce';
 import NetInfo from '@react-native-community/netinfo';
 import { NavigationContainer } from '@react-navigation/native';
@@ -9,8 +9,8 @@ import { Config, Device, Styles, themes, ThemeProvider } from '@common';
 import { MyToast, SplashScreen } from '@containers';
 import { AppIntro, ModalReview } from '@components';
 import Navigation, { navigationRef } from '@navigation';
-import * as LayoutRedux from '@redux/LayoutRedux';
-import * as NetInfoRedux from '@redux/NetInfoRedux';
+import * as LayoutRedux from '@app/redux-store/LayoutRedux';
+import * as NetInfoRedux from '@app/redux-store/NetInfoRedux';
 
 import MenuSide from '@components/LeftMenu/MenuOverlay';
 // import MenuSide from "@components/LeftMenu/MenuScale";
@@ -18,6 +18,7 @@ import MenuSide from '@components/LeftMenu/MenuOverlay';
 // import MenuSide from '@components/LeftMenu/MenuWide';
 
 import { toast, closeDrawer } from './Omni';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const AR_LANGUAGE = 'ar';
 
@@ -44,8 +45,8 @@ const Router = props => {
   const theme = isDarkTheme ? themes.dark : themes.default;
 
   const language = useSelector(state => state.language);
-  const introStatus = useSelector(state => state.user.finishIntro);
-  const initializing = useSelector(state => state.layouts.initializing);
+  const introStatus = useSelector(state => state.user?.finishIntro);
+  const initializing = useSelector(state => state.layouts?.initializing);
 
   React.useEffect(() => {
     let isMounted = true;
@@ -66,7 +67,7 @@ const Router = props => {
       });
 
       // initial json file from server or local
-      await fetchHomeLayouts(Config.HomeCaching.url, Config.HomeCaching.enable);
+      fetchHomeLayouts(Config.HomeCaching.url, Config.HomeCaching.enable);
 
       const netInfo = await NetInfo.fetch();
 
@@ -90,16 +91,16 @@ const Router = props => {
       return toast('Cannot navigate');
     }
 
-    // fix the navigation for Custom page
+    // fix the navigation for Custom page 
     if (routeName) {
       navigationRef?.current?.navigate(routeName, params);
     }
 
     closeDrawer();
   };
-
+  
   if (!introStatus) {
-    return <AppIntro />;
+    return <GestureHandlerRootView><AppIntro /></GestureHandlerRootView>;
   }
 
   if (loading || initializing) {
@@ -116,6 +117,7 @@ const Router = props => {
           >
             <StatusBar
               barStyle={isDarkTheme ? 'light-content' : 'dark-content'}
+              backgroundColor={theme.colors.background}
               animated
               hidden={Device.isIphoneX ? false : !Config.showStatusBar}
             />

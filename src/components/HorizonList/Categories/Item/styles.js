@@ -1,12 +1,13 @@
 /** @format */
 
+import { Constants } from '@common';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
     paddingLeft: 5,
     paddingRight: 6,
-    width: 90,
+    width: 110,
     marginTop: 20,
   },
   button: {
@@ -21,8 +22,8 @@ export default StyleSheet.create({
   },
   title: {
     marginTop: 6,
-    fontSize: 11,
-    // fontFamily: Constants.fontHeader,
+    fontSize: 13,
+    fontFamily: Constants.fontFamily,
     opacity: 0.9,
     textAlign: 'center',
   },
@@ -37,11 +38,11 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   icon: {
-    width: 28,
-    height: 28,
+    width: 32,
+    height: 32,
     resizeMode: 'contain',
     tintColor: '#FFF',
-    marginBottom: 18,
+    // marginBottom: 20,
   },
 
   background: {

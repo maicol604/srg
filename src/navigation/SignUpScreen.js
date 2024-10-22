@@ -8,10 +8,11 @@ import { SignUp } from '@containers';
 class SignUpScreen extends Component {
   render() {
     const { navigation, route } = this.props;
-
+    const { goBack } = navigation;
     return (
       <SignUp
         params={route.params}
+        onBack={goBack}
         onBackCart={() => navigation.navigate('Cart')}
       />
     );

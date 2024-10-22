@@ -171,8 +171,8 @@ const mapStateToProps = ({ products, news }, ownProps) => {
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { dispatch } = dispatchProps;
-  const Product = require('@redux/ProductRedux');
-  const News = require('@redux/NewsRedux');
+  const Product = require('@app/redux-store/ProductRedux');
+  const News = require('@app/redux-store/NewsRedux');
   return {
     ...ownProps,
     ...stateProps,

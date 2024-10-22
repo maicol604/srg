@@ -42,6 +42,11 @@ class Categories extends PureComponent {
 const styles = {
   flatlist: {
     marginBottom: 10,
+    width: '100%',
+    justifyContent: 'center',
+    backgroundColor: '#FFF',
+    paddingBottom: 15,
+    paddingTop: 10
   },
 };
 

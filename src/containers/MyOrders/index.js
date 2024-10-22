@@ -87,7 +87,7 @@ class MyOrders extends PureComponent {
           data={data}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
-            { useNativeDriver: Platform.OS !== 'android' },
+            { useNativeDriver: false },
           )}
           scrollEventThrottle={1}
           keyExtractor={(item, index) => `${item.id} || ${index}`}
@@ -108,7 +108,7 @@ class MyOrders extends PureComponent {
 const mapStateToProps = ({ user, carts }) => ({ user, carts });
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/CartRedux');
+  const { actions } = require('@app/redux-store/CartRedux');
   return {
     ...ownProps,
     ...stateProps,

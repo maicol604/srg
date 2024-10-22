@@ -12,7 +12,7 @@ import {
 const { width, height } = Dimensions.get('window');
 import { Styles, Constants, Images } from '@common';
 import { getProductImage } from '@app/Omni';
-import { TextHighlight, ProductPrice } from '@components';
+import { TextHighlight, ProductPrice, ImageCache, TouchableScale } from '@components';
 
 class Item extends React.PureComponent {
   state = {
@@ -25,7 +25,7 @@ class Item extends React.PureComponent {
   };
 
   render() {
-    const { item, currency } = this.props;
+    const { item, currency, viewAll, config } = this.props;
     const textSting = 20;
 
     const imageUrl =
@@ -45,72 +45,104 @@ class Item extends React.PureComponent {
       outputRange: [0, 1],
     });
 
-    return (
-      <TouchableOpacity
-        activeOpacity={0.9}
-        style={styles.item}
-        onPress={this.onViewPost}
-      >
-        <Animated.Image
-          source={{
-            uri: imageUrl,
-          }}
-          style={[
-            styles.image,
-            {
-              transform: [
-                {
-                  scale: this.state.scaleAnimation,
-                },
-              ],
-            },
-          ]}
-        />
-        <View style={styles.content}>
-          <Animated.View
-            style={[
-              styles.contentWrap,
-              {
-                opacity: contentOpacity,
-              },
-            ]}
-          >
-            <TextHighlight
-              marginTop={0}
-              splitOn={
-                title.length > textSting
-                  ? title.length / (title.length / textSting)
-                  : title.length + 1
-              }
-              style={styles.contentText}
-              textStyle={styles.titleStyle}
-            >
-              {title}
-            </TextHighlight>
-          </Animated.View>
+    const column = config.column || 1;
+    const height = config.height || 160;
+    const resizeMode = config.imageMode || 'cover';
 
-          <Animated.View
+    if (item.type == "bannerImage") {
+      return (
+        <TouchableScale onPress={() => viewAll({ ...item, name: item.label })} >
+          <View activeOpacity={1} style={styles.imageBannerView(column, height)}>
+            <ImageCache
+              uri={item.images[0].src}
+              style={styles.imageBanner(resizeMode)}
+            />
+            <View style={styles.overlay}>
+              <Text style={styles.titleBanner}>{item.title}</Text>
+              <Animated.Text
+                style={[
+                  styles.description,
+                  {
+                    transform: [
+                      {
+                        scale: this.state.scaleAnimation,
+                      },
+                    ],
+                  },
+                ]}
+                numberOfLines={2} ellipsizeMode="tail">{item.description}</Animated.Text>
+            </View>
+          </View>
+        </TouchableScale>
+      )
+    } else {
+      return (
+        <TouchableOpacity
+          activeOpacity={0.9}
+          style={styles.item}
+          onPress={this.onViewPost}
+        >
+          <Animated.Image
+            source={{
+              uri: imageUrl,
+            }}
             style={[
-              styles.price,
+              styles.image,
               {
                 transform: [
                   {
-                    translateX: timePosition,
+                    scale: this.state.scaleAnimation,
                   },
                 ],
               },
             ]}
-          >
-            <ProductPrice
-              fontStyle={styles.priceStyle}
-              product={item}
-              hideDisCount
-              currency={currency}
-            />
-          </Animated.View>
-        </View>
-      </TouchableOpacity>
-    );
+          />
+          <View style={styles.content}>
+            <Animated.View
+              style={[
+                styles.contentWrap,
+                {
+                  opacity: contentOpacity,
+                },
+              ]}
+            >
+              <TextHighlight
+                marginTop={0}
+                splitOn={
+                  title.length > textSting
+                    ? title.length / (title.length / textSting)
+                    : title.length + 1
+                }
+                style={styles.contentText}
+                textStyle={styles.titleStyle}
+              >
+                {title}
+              </TextHighlight>
+            </Animated.View>
+
+            <Animated.View
+              style={[
+                styles.price,
+                {
+                  transform: [
+                    {
+                      translateX: timePosition,
+                    },
+                  ],
+                },
+              ]}
+            >
+              <ProductPrice
+                fontStyle={styles.priceStyle}
+                product={item}
+                hideDisCount
+                currency={currency}
+              />
+            </Animated.View>
+          </View>
+        </TouchableOpacity>
+      );
+    }
   }
 
   componentDidMount() {
@@ -124,13 +156,13 @@ class Item extends React.PureComponent {
       Animated.timing(this.state.scaleAnimation, {
         toValue: 1.2,
         duration: 6000,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }),
       Animated.timing(this.state.positionAnimation, {
         toValue: 1,
         delay: 2000,
         duration: 1000,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }),
     ]).start();
   };
@@ -152,6 +184,21 @@ class Item extends React.PureComponent {
 }
 
 const styles = {
+  imageBannerView: (column, height) => ({
+    width: Styles.width / column - 20,
+    height,
+    borderRadius: 9,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 5,
+    overflow: 'hidden',
+
+    backgroundColor: '#eee',
+  }),
+  imageBanner: resizeMode => ({
+    flex: 1,
+    resizeMode,
+  }),
   item: {
     height: height * 0.55,
     width: width - 20,
@@ -208,6 +255,32 @@ const styles = {
     fontFamily: Constants.fontHeader,
     color: '#406AB3',
     marginBottom: 10,
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'flex-end',
+    paddingBottom: 40,
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.25)',
+  },
+  titleBanner: {
+    color: 'white',
+    fontSize: 12,
+    paddingBottom: 5,
+    fontStyle: 'italic',
+    textAlign: 'center',
+    fontFamily: Constants.fontFamily
+  },
+  description: {
+    color: 'white',
+    fontSize: 15,
+    maxWidth: width - 150,
+    textAlign: 'center',
+    fontFamily: Constants.fontFamilyBold
   },
 };
 

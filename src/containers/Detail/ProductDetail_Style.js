@@ -107,7 +107,7 @@ export default StyleSheet.create({
   textTab: {
     fontFamily: Constants.fontHeader,
     color: 'rgba(183, 196, 203, 1)',
-    fontSize: 16,
+    fontSize: 14,
   },
   tabButtonHead: {
     position: 'absolute',
@@ -263,6 +263,7 @@ export default StyleSheet.create({
   dropdownRightIconStyle: {
     flex: 0.1,
     alignItems: 'center',
+    paddingRight: 5
   },
   dropdownTextStyle: {
     fontSize: 14,

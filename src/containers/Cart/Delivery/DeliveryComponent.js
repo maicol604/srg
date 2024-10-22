@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import * as AddressRedux from '@redux/AddressRedux';
+import * as AddressRedux from '@app/redux-store/AddressRedux';
 
 import { Languages, withTheme } from '@common';
 import css from '@cart/styles';
@@ -30,7 +30,7 @@ const DeliveryComponent = React.memo(props => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    defaultValues: props.address,
+    values: props.address,
     resolver: yupResolver(addAddressSchema),
   });
 

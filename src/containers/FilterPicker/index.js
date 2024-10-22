@@ -8,14 +8,15 @@ import { connect } from 'react-redux';
 import { log } from '@app/Omni';
 import { Button } from '@components';
 import { Styles, Color, Languages, withTheme } from '@common';
-import { actions as FiltersActions } from '@redux/FilterRedux';
+import { actions as FiltersActions } from '@app/redux-store/FilterRedux';
 import Section from './Section';
+import Device from '@app/common/Device';
 
 const sections = [
-  { title: 'Sub Category', type: 'category', storeName: 'category' },
+  { title: 'Subcategoria', type: 'category', storeName: 'category' },
   // { title: "Brands", type: "brand", storeName: "brands" },
-  { title: 'Tags', type: 'tag', storeName: 'tags' },
-  { title: 'Price', type: 'price', storeName: 'price' },
+  { title: 'Etiqueta', type: 'tag', storeName: 'tags' },
+  { title: 'Precio', type: 'price', storeName: 'price' },
 ];
 
 class FilterPicker extends React.PureComponent {
@@ -29,6 +30,7 @@ class FilterPicker extends React.PureComponent {
   };
 
   _onChangeFilter = (type, selected) => {
+    // if(this.filters?.categories)
     this.filters = {
       ...this.filters,
       [type]: selected,
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     justifyContent: 'center',
-    paddingTop: 20,
+    paddingTop: Device.statusBarHeight,
   },
   subContainer: {
     backgroundColor: Color.background,
@@ -124,7 +126,7 @@ const styles = StyleSheet.create({
   },
   selectContainer: {
     padding: 15,
-    backgroundColor: 'rgba(0,145,234,1)',
+    backgroundColor: '#902726',
     flex: 1,
     color: 'rgba(0,0,0,1)',
   },
@@ -136,10 +138,12 @@ const styles = StyleSheet.create({
     padding: 15,
     flex: 1,
     color: 'rgba(0,0,0,1)',
+    backgroundColor: 'transparent',
   },
   cancelText: {
     color: 'white',
     fontSize: 14,
+    color: '#902726'
   },
   row: {
     flexDirection: 'row',

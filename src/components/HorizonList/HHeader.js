@@ -14,7 +14,7 @@ export default class HHeader extends React.PureComponent {
       config,
       viewAll,
       theme: {
-        colors: { text },
+        colors: { text, primary },
       },
     } = this.props;
 
@@ -33,7 +33,7 @@ export default class HHeader extends React.PureComponent {
           }
           style={styles.headerRight}
         >
-          <Text style={[styles.headerRightText, { color: text }]}>
+          <Text style={[styles.headerRightText, { color: primary }]}>
             {Languages.seeAll}
           </Text>
           <Icon

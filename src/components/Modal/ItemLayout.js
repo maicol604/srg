@@ -4,7 +4,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { Constants, Languages, withTheme } from '@common';
-import { actions } from '@redux/ProductRedux';
+import { actions } from '@app/redux-store/ProductRedux';
 import { connect } from 'react-redux';
 import styles from './styles';
 

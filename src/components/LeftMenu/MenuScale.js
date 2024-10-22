@@ -82,7 +82,7 @@ const mapStateToProps = ({ sideMenu }) => ({
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { dispatch } = dispatchProps;
-  const { actions: sideMenuActions } = require('@redux/SideMenuRedux');
+  const { actions: sideMenuActions } = require('@app/redux-store/SideMenuRedux');
   return {
     ...ownProps,
     ...stateProps,

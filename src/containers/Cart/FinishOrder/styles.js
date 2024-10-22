@@ -11,7 +11,6 @@ export default StyleSheet.create({
   title: {
     textAlign: 'center',
     fontSize: 25,
-    fontWeight: 'bold',
     marginTop: 40,
     fontFamily: Constants.fontHeader,
   },
@@ -25,6 +24,7 @@ export default StyleSheet.create({
     color: 'gray',
     lineHeight: 25,
     margin: 20,
+    fontFamily: Constants.fontFamily
   },
   orderNoContainer: {
     justifyContent: 'center',

@@ -2,7 +2,7 @@
 
 export const ROUTER = {
   // news
-  NEWS: 'News',
+  NEWS: 'NewsScreen',
   NEWS_DETAIL: 'NewsDetailScreen',
 
   // category

@@ -3,7 +3,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Text, View, TouchableOpacity, Image } from 'react-native';
-import TimeAgo from 'react-native-timeago';
+import TimeAgo from '@custom/react-native-timeago';
 import { Images } from '@common';
 import css from './style';
 

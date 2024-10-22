@@ -17,7 +17,7 @@ import { get, has } from 'lodash';
 
 import WPUserAPI from '@services/WPUserAPI';
 import Button from '@components/Button';
-import { Styles, Languages, Color, withTheme } from '@common';
+import { Styles, Languages, Color, withTheme, Constants } from '@common';
 import { toast, error, Validate } from '@app/Omni';
 import { Spinner } from '@components';
 
@@ -96,7 +96,8 @@ class SignUpScreen extends Component {
     }
 
     if (json.error) {
-      return this.stopAndToast(json.error);
+      // return this.stopAndToast(json.error);
+      return this.stopAndToast('La dirección de correo electrónico ya está en uso. Por favor, utiliza otra o intenta iniciar sesión.');
     }
 
     if (has(json, 'user_id')) {
@@ -104,6 +105,7 @@ class SignUpScreen extends Component {
 
       if (customer) {
         this.setState({ isLoading: false });
+        this._onBack();
         login(customer, get(json, 'cookie'));
 
         return;
@@ -115,6 +117,15 @@ class SignUpScreen extends Component {
     toast(Languages.CanNotRegister);
   };
 
+  _onBack = () => {
+    const { onBack, goBack } = this.props;
+    if (onBack) {
+        onBack();
+    } else {
+        goBack();
+    }
+  };
+  
   validateForm = () => {
     const { username, email, password, firstName, lastName, useGeneratePass } =
       this.state;
@@ -281,10 +292,10 @@ const styles = StyleSheet.create({
     padding: Styles.width * 0.1,
   },
   label: {
-    fontWeight: 'bold',
     fontSize: Styles.FontSize.medium,
     color: Color.blackTextPrimary,
     marginTop: 20,
+    fontFamily: Constants.fontFamilyBold
   },
 
   input: text => ({
@@ -297,6 +308,7 @@ const styles = StyleSheet.create({
     // flex: 1,
     textAlign: I18nManager.isRTL ? 'right' : 'left',
     color: text,
+    fontFamily: Constants.fontFamily
   }),
   signUpButton: {
     marginTop: 20,
@@ -321,7 +333,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  const { actions } = require('@redux/UserRedux');
+  const { actions } = require('@app/redux-store/UserRedux');
   return {
     login: (user, token) => dispatch(actions.login(user, token)),
   };

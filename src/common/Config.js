@@ -31,22 +31,55 @@ export default {
     enable: true,
   },
 
+  HomeCategoriesBanner: [
+    {
+      height: 160,
+      category: 328,
+      label: "DO",
+      imageMode: "cover",
+      type: "bannerImage",
+      title: "Descubre cada producto por su",
+      description: "DENOMINACÓN DE ORIGEN.",
+      images: [{ src: "https://saborruralgalicia.com/wp-content/uploads/2024/08/Denominacion-de-origen.jpg" }]
+    },
+    {
+      height: 160,
+      category: 333,
+      label: "Productores",
+      imageMode: "cover",
+      type: "bannerImage",
+      title: "Explora las mejores bodegas y",
+      description: "ENCUENTRA EL SABOR PERFECTO",
+      images: [{ src: "https://saborruralgalicia.com/wp-content/uploads/2024/01/Black-Drink-Up-Facebook-Event-Cover-1536x864.png" }]
+    },
+    {
+      height: 160,
+      category: 315,
+      label: "Vinos",
+      imageMode: "cover",
+      type: "bannerImage",
+      title: "Selecciona tu vino favorito",
+      description: "SEGÚN SU PRODUCTOR.",
+      images: [{ src: "https://saborrural.es/wp-content/uploads/2021/05/banner-tiendasr.png" }]
+    }
+  ],
+
   HomeCategories: [
     {
       category: 315,
-      image: require('@images/categories_icon/ic_shorts.png'),
+      image: require('@images/categories_icon/ic_vino.png'),
       colors: ['#ad261c', '#ead4d3'],
       label: 'Vinos',
     },
     {
-      category: 21,
-      image: require('@images/categories_icon/ic_tshirt.png'),
+      category: 328,
+      image: require('@images/categories_icon/ic_deno.png'),
       colors: ['#0f7e75', '#cfe6e4'],
-      label: 'Denominación de origen',
+      label: 'DO',
     },
     {
-      category: 208,
-      image: require('@images/categories_icon/ic_panties.png'),
+      category: 333,
+      image: require('@images/categories_icon/ic-productores.png'),
       colors: ['#878033', '#e5e3d2'],
       label: 'Productores',
     },
@@ -64,36 +97,36 @@ export default {
     // },
   ],
   HomeCategories_AR: [
-    {
-      category: 55,
-      image: require('@images/categories_icon/ic_shorts.png'),
-      colors: ['#4facfe', '#00f2fe'],
-      label: 'لكن',
-    },
-    {
-      category: 21,
-      image: require('@images/categories_icon/ic_tshirt.png'),
-      colors: ['#43e97b', '#38f9d7'],
-      label: 'تي شيرت',
-    },
-    {
-      category: 208,
-      image: require('@images/categories_icon/ic_panties.png'),
-      colors: ['#fa709a', '#fee140'],
-      label: 'ملابس',
-    },
-    {
-      category: 26,
-      image: require('@images/categories_icon/ic_dress.png'),
-      colors: ['#7F00FF', '#E100FF'],
-      label: 'فساتين',
-    },
-    {
-      category: 24,
-      image: require('@images/categories_icon/ic_glasses.png'),
-      colors: ['#30cfd0', '#330867'],
-      label: 'أكياس',
-    },
+    // {
+    //   category: 55,
+    //   image: require('@images/categories_icon/ic_shorts.png'),
+    //   colors: ['#4facfe', '#00f2fe'],
+    //   label: 'لكن',
+    // },
+    // {
+    //   category: 21,
+    //   image: require('@images/categories_icon/ic_tshirt.png'),
+    //   colors: ['#43e97b', '#38f9d7'],
+    //   label: 'تي شيرت',
+    // },
+    // {
+    //   category: 208,
+    //   image: require('@images/categories_icon/ic_panties.png'),
+    //   colors: ['#fa709a', '#fee140'],
+    //   label: 'ملابس',
+    // },
+    // {
+    //   category: 26,
+    //   image: require('@images/categories_icon/ic_dress.png'),
+    //   colors: ['#7F00FF', '#E100FF'],
+    //   label: 'فساتين',
+    // },
+    // {
+    //   category: 24,
+    //   image: require('@images/categories_icon/ic_glasses.png'),
+    //   colors: ['#30cfd0', '#330867'],
+    //   label: 'أكياس',
+    // },
   ],
   /**
      step 3: Config image for the Payment Gateway
@@ -106,6 +139,7 @@ export default {
     cod: require('@images/payment_logo/cash_on_delivery.png'),
     paypal: require('@images/payment_logo/PayPal.png'),
     stripe: require('@images/payment_logo/stripe.png'),
+    cecabank_gateway: require('@images/payment_logo/cecabank_gateway.png'),
   },
 
   /**
@@ -133,7 +167,7 @@ export default {
   showStatusBar: true,
   LogoImage: require('@images/logosrgal.png'),
   LogoWithText: require('@images/logosrgal.png'),
-  LogoLoading: require('@images/logosrgal.png'),
+  LogoLoading: require('@images/loader.png'),
 
   showAdmobAds: false,
   AdMob: {
@@ -145,7 +179,7 @@ export default {
   appFacebookId: '501847534057136',
   CustomPages: { contact_id: 10941 },
   WebPages: { marketing: 'http://inspireui.com' },
-
+ 
   intro: [
     {
       key: 'page1',
@@ -153,7 +187,8 @@ export default {
       text: '',
       icon: false,
       colors: ['#212121', '#902726'],
-      image:  require('@images/logosrgal-w.png'),
+      image: require('@images/logosrgal-w.png'),
+      bgImage: require('@images/intro/intro-bg.jpg'),
     },
     // {
     //   key: 'page2',
@@ -208,28 +243,29 @@ export default {
         routeName: 'Home',
         icon: Icons.MaterialCommunityIcons.Home,
       },
-      {
-        text: 'News',
-        routeName: 'NewsScreen',
-        icon: Icons.MaterialCommunityIcons.News,
-      },
-      {
-        text: 'contactus',
-        routeName: 'CustomPage',
-        params: {
-          id: 10941,
-          title: 'contactus',
-        },
-        icon: Icons.MaterialCommunityIcons.Pin,
-      },
-      {
-        text: 'About',
-        routeName: 'CustomPage',
-        params: {
-          url: 'http://inspireui.com/about/',
-        },
-        icon: Icons.MaterialCommunityIcons.Email,
-      },
+      // {
+      //   text: 'News',
+      //   routeName: 'NewsScreen',
+      //   icon: Icons.MaterialCommunityIcons.News,
+      // },
+      // {
+      //   text: 'contactus',
+      //   routeName: 'CustomPage',
+      //   params: {
+      //     id: 10941,
+      //     title: 'contactus',
+      //     url: 'https://saborruralgalicia.com/contactanos/'
+      //   },
+      //   icon: Icons.MaterialCommunityIcons.Pin,
+      // },
+      // {
+      //   text: 'About',
+      //   routeName: 'CustomPage',
+      //   params: {
+      //     url: 'https://saborruralgalicia.com/que-es-sabor-rural/',
+      //   },
+      //   icon: Icons.MaterialCommunityIcons.Email,
+      // },
     ],
   },
 
@@ -253,7 +289,7 @@ export default {
     // },
     // only support mstore pro
     // {
-    //   label: 'Languages',
+    //   label: 'Languages', 
     //   routeName: 'SettingScreen',
     // },
     // {
@@ -268,20 +304,21 @@ export default {
     //   params: {
     //     id: 10941,
     //     title: 'contactus',
+    //     url: 'https://saborruralgalicia.com/contactanos/'
     //   },
     // },
-    {
-      label: 'Privacy',
-      routeName: 'CustomPage',
-      params: {
-        url: 'https://saborruralgalicia.com/politica-privacidad/',
-      },
-    },
+    // {
+    //   label: 'Privacy',
+    //   routeName: 'CustomPage',
+    //   params: {
+    //     url: 'https://saborruralgalicia.com/politica-privacidad/',
+    //   },
+    // },
     // {
     //   label: 'termCondition',
     //   routeName: 'CustomPage',
     //   params: {
-    //     url: 'https://inspireui.com/term-of-service',
+    //     url: 'https://saborruralgalicia.com/condiciones-compra/',
     //   },
     // },
     // {
@@ -290,6 +327,7 @@ export default {
     //   params: {
     //     id: 10939,
     //     title: 'About',
+    //     url: 'https://saborruralgalicia.com/que-es-sabor-rural/',
     //   },
     // },
   ],
@@ -334,7 +372,7 @@ export default {
   },
 
   // new list category design
-  CategoriesLayout: Constants.CategoriesLayout.card,
+  CategoriesLayout: Constants.CategoriesLayout.sideMenu,
 
   // WARNING: Currently when you change DefaultCurrency, please uninstall your app and reinstall again. The redux saved store.
   DefaultCurrency: {
@@ -349,10 +387,10 @@ export default {
   },
 
   DefaultCountry: {
-    code: 'en',
+    code: 'es',
     RTL: false,
-    language: 'English',
-    countryCode: 'US',
+    language: 'Spanish',
+    countryCode: 'ES',
     hideCountryList: false, // when this option is try we will hide the country list from the checkout page, default select by the above 'countryCode'
   },
 
@@ -371,7 +409,7 @@ export default {
   },
 
   Layout: {
-    HideHomeLogo: false,
+    HideHomeLogo: true,
     HideLayoutModal: false,
   },
 

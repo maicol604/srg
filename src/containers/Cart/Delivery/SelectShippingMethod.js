@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, View, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
-import * as CartRedux from '@redux/CartRedux';
+import * as CartRedux from '@app/redux-store/CartRedux';
 import { Config, Languages, withTheme } from '@common';
 import { ShippingMethod } from '@components';
 

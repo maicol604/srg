@@ -7,7 +7,7 @@ const { width } = Dimensions.get('window');
 export default StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 30,
+    paddingTop: 10,
   },
   flatlist: {
     paddingTop: 8,

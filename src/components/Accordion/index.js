@@ -54,8 +54,7 @@ export default class Accordion extends PureComponent {
   }
 
   _toggleSection(section) {
-    const activeSection =
-      this.state.activeSection === section ? false : section;
+    const activeSection = this.state.activeSection === section ? false : section;
 
     if (this.props.activeSection === undefined) {
       this.setState({ activeSection });

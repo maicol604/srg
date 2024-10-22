@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from 'react-native';
-import { Color } from '@common';
+import { Color, Constants } from '@common';
 
 export default StyleSheet.create({
   container: {
@@ -29,13 +29,13 @@ export default StyleSheet.create({
     flex: 1,
   },
   name: {
-    fontWeight: 'bold',
-    fontSize: 13,
-    marginBottom: 5,
+    fontSize: 15,
+    fontFamily: Constants.fontHeader
   },
   text: {
     fontSize: 13,
     marginBottom: 3,
+    fontFamily: Constants.fontFamily
   },
   buttons: {
     justifyContent: 'space-between',

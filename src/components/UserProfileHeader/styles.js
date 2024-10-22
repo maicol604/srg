@@ -9,7 +9,7 @@ export default StyleSheet.create({
     marginBottom: 2,
   },
   fullName: {
-    fontWeight: '600',
+    fontFamily: Constants.fontFamilyBold,
     color: Color.blackTextPrimary,
     backgroundColor: 'transparent',
     fontSize: 30,
@@ -37,5 +37,6 @@ export default StyleSheet.create({
   },
   loginText: {
     color: '#666',
+    fontFamily: Constants.fontFamily
   },
 });

@@ -46,7 +46,7 @@ const mapStateToProps = ({ carts }, ownProps) => {
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/CartRedux');
+  const { actions } = require('@app/redux-store/CartRedux');
   return {
     ...ownProps,
     ...stateProps,

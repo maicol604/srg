@@ -15,8 +15,8 @@ import { connect } from 'react-redux';
 
 import { Color, Images, Styles, withTheme, Languages } from '@common';
 import { ActionSheets } from '@components';
-import { DisplayMode } from '@redux/CategoryRedux';
-import { actions as FiltersActions } from '@redux/FilterRedux';
+import { DisplayMode } from '@app/redux-store/CategoryRedux';
+import { actions as FiltersActions } from '@app/redux-store/FilterRedux';
 
 const controlBarHeight = 50;
 
@@ -30,31 +30,32 @@ class ControlBar extends React.Component {
     };
     this.options = [
       {
-        title: 'Sort by Date descending',
+        title: 'Ordenar por Fecha descendente',
         order: 'desc',
         orderby: 'date',
       },
       {
-        title: 'Sort by Date ascending',
+        title: 'Ordenar por Fecha ascendente',
         order: 'asc',
         orderby: 'date',
       },
       {
-        title: 'Sort by Name descending',
+        title: 'Ordenar por Nombre descendente',
         order: 'desc',
         orderby: 'title',
       },
       {
-        title: 'Sort by Name ascending',
+        title: 'Ordenar por Nombre ascendente',
         order: 'asc',
         orderby: 'title',
       },
       {
-        title: 'Cancel',
+        title: 'Cancelar',
         actionStyle: 'cancel',
         isCancel: true,
       },
     ];
+    this.pickerRef = React.createRef();
   }
 
   shouldComponentUpdate() {
@@ -126,7 +127,7 @@ class ControlBar extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              this.refs.picker.show();
+              this.pickerRef.current.show();
             }}
             style={styles.iconAndTextWrap}
           >
@@ -190,7 +191,7 @@ class ControlBar extends React.Component {
         </View>
         {/* actionsheets sort */}
         <ActionSheets
-          ref="picker"
+          ref={this.pickerRef}
           titles={this.options}
           separateHeight={1}
           separateColor="#dddddd"
@@ -268,7 +269,7 @@ const mapStateToProps = state => {
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { dispatch } = dispatchProps;
-  const { actions } = require('@redux/CategoryRedux');
+  const { actions } = require('@app/redux-store/CategoryRedux');
 
   return {
     ...ownProps,

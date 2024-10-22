@@ -10,8 +10,11 @@ const isIphoneX =
   !Platform.isTVOS &&
   (height >= 812 || width >= 812);
 
+const iphoneXHeight = 44;
+
 export default {
   isIphoneX,
-  ToolbarHeight: isIphoneX ? 35 : 0,
+  ToolbarHeight: isIphoneX ? iphoneXHeight : 0,
   isAndroid: Platform.OS === 'android',
+  statusBarHeight: isIphoneX ? iphoneXHeight : 20
 };

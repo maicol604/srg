@@ -1,7 +1,7 @@
 /** @format */
 
 import * as React from 'react';
-import { Color, Images, Languages, Styles } from '@common';
+import { Color, Constants, Images, Languages, Styles } from '@common';
 import { ROUTER } from './constants';
 import {
   Back,
@@ -12,6 +12,8 @@ import {
   Menu,
   NavBarLogo,
   RightIcon,
+  HeaderRight,
+  Title
 } from './IconNav';
 
 export const getNavigationOptions = ({ route, navigation, theme }) => {
@@ -22,9 +24,12 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
       navigationOptions = {
         headerTitle: props => <NavBarLogo {...props} route={route} />,
         headerLeft: props => <Menu {...props} dark={theme.dark} />,
-        headerRight: props => <HeaderHomeRight {...props} />,
+        headerRight: props => <HeaderRight {...props} navigation={navigation} />,
 
         headerTintColor: Color.headerTintColor,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -34,6 +39,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
       navigationOptions = {
         title: Languages.WishList,
         headerShown: false,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -41,8 +49,12 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
 
     case ROUTER.SEARCH: {
       navigationOptions = {
+        headerLeft: () => <Back navigation={navigation} dark={theme.dark} />,
         title: Languages.Search,
-        headerShown: false,
+        headerShown: true,
+        headerTitleStyle: {
+          fontFamily: Constants.fontFamilyBold,
+        },
       };
 
       break;
@@ -51,6 +63,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
     case ROUTER.CART: {
       navigationOptions = {
         headerShown: false,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -59,9 +74,11 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
     case ROUTER.USER_PROFILE: {
       navigationOptions = {
         headerLeft: props => <Menu {...props} dark={theme.dark} />,
-
         title: Languages.UserProfile,
         headerTintColor: Color.headerTintColor,
+        headerTitleStyle: {
+          fontFamily: Constants.fontFamilyBold,
+        },
       };
 
       break;
@@ -70,6 +87,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
     case ROUTER.MY_ORDERS: {
       navigationOptions = {
         headerShown: false,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -81,6 +101,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
         headerLeft: () => <Back navigation={navigation} dark={theme.dark} />,
 
         headerTintColor: Color.headerTintColor,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -97,6 +120,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
         ),
 
         headerTintColor: Color.headerTintColor,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -111,6 +137,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
 
         title: Languages.Login,
         headerTintColor: Color.headerTintColor,
+        headerTitleStyle: {
+          fontFamily: Constants.fontFamilyBold,
+        },
       };
 
       break;
@@ -125,6 +154,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
 
         title: Languages.signup,
         headerTintColor: Color.headerTintColor,
+        headerTitleStyle: {
+          fontFamily: Constants.fontFamilyBold,
+        },
       };
 
       break;
@@ -137,6 +169,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
         headerRight: props => <EmptyView {...props} />,
 
         headerTintColor: Color.headerTintColor,
+        headerTitleStyle: {
+          fontFamily: Constants.fontFamilyBold,
+        },
       };
 
       break;
@@ -151,6 +186,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
 
         tabBarVisible: false,
         headerTintColor: Color.headerTintColor,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -165,6 +203,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
         headerRight: props => <EmptyView {...props} />,
 
         headerTintColor: Color.headerTintColor,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -172,11 +213,15 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
 
     case ROUTER.CATEGORIES: {
       navigationOptions = {
-        headerTitle: props => <Logo {...props} />,
-        headerLeft: props => <Menu {...props} dark={theme.dark} />,
-        headerRight: props => <EmptyView {...props} />,
+        headerTitle: props => <EmptyView {...props} />,
+        headerLeft: props => <Title {...props} title={Languages.Categories} />,
+        headerRight: props => <HeaderRight {...props} navigation={navigation} />,
 
         headerTintColor: Color.headerTintColor,
+        headerShown: true,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -191,6 +236,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
 
         tabBarVisible: false,
         headerTintColor: Color.headerTintColor,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -211,6 +259,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
         ),
 
         headerTintColor: Color.headerTintColor,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -224,6 +275,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
         headerRight: () => <EmptyView />,
 
         headerTintColor: Color.headerTintColor,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -237,6 +291,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
 
         title: Languages.Settings,
         headerTintColor: Color.headerTintColor,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -255,6 +312,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
         headerStyle: Styles.Common.toolbarFloat,
         headerTransparent: true,
         title: null,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;
@@ -273,6 +333,9 @@ export const getNavigationOptions = ({ route, navigation, theme }) => {
         headerStyle: Styles.Common.toolbarFloat,
         headerTransparent: true,
         title: null,
+        headerStyle: {
+          fontFamily: Constants.fontFamilyBold
+        }
       };
 
       break;

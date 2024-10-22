@@ -1,7 +1,7 @@
 /** @format */
 
 import { StyleSheet } from 'react-native';
-import { Color } from '@common';
+import { Color, Constants } from '@common';
 
 export default StyleSheet.create({
   container: dark => ({
@@ -16,11 +16,15 @@ export default StyleSheet.create({
   }),
   text: dark => ({
     fontSize: 14,
-    color: dark ? '#fff' : Color.primary,
+    color: dark ? '#fff' : Color.Text,
+    fontFamily: Constants.fontFamily
   }),
   selected: dark => ({
     backgroundColor: dark ? '#434343' : '#fff',
     borderWidth: 1,
     borderColor: dark ? '#fff' : Color.primary,
+  }),
+  selectedText: dark => ({
+    color: dark ? '#fff' : Color.primary,
   }),
 });

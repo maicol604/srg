@@ -37,9 +37,11 @@ class UserProfileHeader extends PureComponent {
           <Image source={avatar} style={styles.avatar} />
           <View style={styles.textContainer}>
             <Text style={[styles.fullName, { color: text }]}>{user.name}</Text>
+            {user && user.address && (
             <Text style={[styles.address, { color: text }]}>
               {user ? user.address : ''}
             </Text>
+            )}
 
             <TouchableOpacity onPress={this.loginHandle}>
               <Text style={styles.loginText}>

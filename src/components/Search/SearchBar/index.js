@@ -28,7 +28,7 @@ class SearchBar extends React.Component {
 
     const {
       theme: {
-        colors: { text, lineColor },
+        colors: { text, lineColor, placeholder },
       },
     } = this.props;
 
@@ -51,7 +51,7 @@ class SearchBar extends React.Component {
         <Icon name={Icons.Ionicons.Search} size={20} color={text} />
         <TextInput
           placeholder={Languages.SearchPlaceHolder}
-          placeholderTextColor={text}
+          placeholderTextColor={placeholder}
           style={[styles.input, { color: text }]}
           underlineColorAndroid="transparent"
           autoFocus={autoFocus}

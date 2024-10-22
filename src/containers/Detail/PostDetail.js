@@ -2,7 +2,7 @@
 
 import React, { PureComponent } from 'react';
 import { Text, Animated, Platform, View } from 'react-native';
-import TimeAgo from 'react-native-timeago';
+import TimeAgo from '@custom/react-native-timeago';
 
 import { Constants, Tools } from '@common';
 import { WebView, Video } from '@components';
@@ -111,7 +111,7 @@ export default class PostDetail extends PureComponent {
           scrollEventThrottle={1}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
-            { useNativeDriver: true },
+            { useNativeDriver: false },
           )}
         >
           {renderContent()}

@@ -25,7 +25,7 @@ class SlideItem extends React.PureComponent {
   }
 
   renderItem = ({ item, index }) => {
-    const { onViewPost, currency } = this.props;
+    const { onViewPost, currency, config, viewAll } = this.props;
     const selected = I18nManager.isRTL
       ? this.indexes[this.state.selectedIndex]
       : this.state.selectedIndex;
@@ -35,6 +35,8 @@ class SlideItem extends React.PureComponent {
         item={item}
         onPress={onViewPost}
         active={index == selected}
+        config={config}
+        viewAll={viewAll}
       />
     );
   };
@@ -43,7 +45,7 @@ class SlideItem extends React.PureComponent {
     const { items } = this.props;
 
     return (
-      <View style={styles.container}>
+      <View style={styles.container(items[0].type)}>
         <View style={styles.content}>
           <FlatList
             ref="list"
@@ -99,10 +101,10 @@ class SlideItem extends React.PureComponent {
 }
 
 const styles = {
-  container: {
-    margin: 10,
-    backgroundColor: '#fff',
-  },
+  container: (type) => ({
+    margin: type == "bannerImage" ? 0 : 10,
+    backgroundColor: type == "bannerImage" ? "transparent" : '#fff',
+  }),
   content: {
     overflow: 'hidden',
     borderRadius: 6,

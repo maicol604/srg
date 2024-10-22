@@ -13,7 +13,7 @@ export default class HHeader extends React.PureComponent {
       gotoListNews,
       config,
       theme: {
-        colors: { text },
+        colors: { text, primary },
       },
     } = this.props;
 
@@ -25,7 +25,7 @@ export default class HHeader extends React.PureComponent {
           </Text>
         </View>
         <TouchableOpacity onPress={gotoListNews} style={styles.headerRight}>
-          <Text style={[styles.headerRightText, { color: text }]}>
+          <Text style={[styles.headerRightText, { color: primary }]}>
             {Languages.seeAll}
           </Text>
           <Icon
