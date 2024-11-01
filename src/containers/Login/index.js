@@ -296,7 +296,7 @@ class LoginScreen extends PureComponent {
                     /> */}
 
                     {/* {SignInWithAppleButton(styles.appleBtn, this.appleSignIn)} */}
-                    {Platform.OS == 'ios' ? (
+                    {/* {Platform.OS == 'ios' ? (
                         <AppleAuthentication.AppleAuthenticationButton
                             buttonType={
                                 AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN
@@ -332,7 +332,7 @@ class LoginScreen extends PureComponent {
                                 }
                             }}
                         />
-                    ) : null}
+                    ) : null} */}
 
                     <TouchableOpacity
                         style={Styles.Common.ColumnCenter}
