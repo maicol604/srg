@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Grandes Vinos Galicia",
-    "slug": "mstore",
+    "slug": "vivasrg-mstore",
     "version": "5.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon-srg.png",
@@ -17,7 +17,7 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.app.srgstore",
+      "bundleIdentifier": "com.app.vivasrgstore",
       "config": {
         "usesNonExemptEncryption": false
       },
@@ -29,12 +29,12 @@
         "foregroundImage": "./assets/icon-srg.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.mrluyx.expo44",
+      "package": "com.app.vivasrgstore",
       "versionCode": 1
     },
     "extra": {
       "eas": {
-        "projectId": "e285b3c1-622f-4c89-8432-530473dd8fec"
+        "projectId": "12b112b2-163e-408c-87f5-a2947c43f2ac"
       }
     },
     "plugins": [
