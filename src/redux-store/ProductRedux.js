@@ -193,7 +193,7 @@ export const actions = {
       });
     }
   },
-  getProductVariations: async (dispatch, product, per_page = 100, page = 1) => {
+  getProductVariations: async (dispatch, product, per_page = 10, page = 1) => {
     dispatch({ type: types.FETCH_PRODUCTS_VARIANT_PENDING });
     const json = await WooWorker.productVariant(product, per_page, page);
 

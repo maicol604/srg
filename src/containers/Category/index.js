@@ -313,7 +313,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     fetchProductsByCategoryId: (
       categoryId,
       page,
-      per_page = 100,
+      per_page = 10,
       filters = {},
     ) => {
       if (!netInfo.isConnected) return toast(Languages.noConnection);
