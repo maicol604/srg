@@ -1,10 +1,11 @@
 /** @format */
 
 import React, { PureComponent } from 'react';
-import { View, ScrollView, Text, Switch } from 'react-native';
+import { View, ScrollView, Text, Switch, StyleSheet, Pressable, Linking } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+
 
 import {
   UserProfileHeader,
@@ -16,6 +17,7 @@ import { Languages, Color, Tools, Config, withTheme } from '@common';
 import { getNotification } from '@app/Omni';
 
 import styles from './styles';
+import { TouchableOpacity } from 'react-native';
 
 class UserProfile extends PureComponent {
   constructor(props) {
@@ -123,6 +125,11 @@ class UserProfile extends PureComponent {
     }
   };
 
+  handlePress = () => {
+    const url = `${Config.WooCommerce.url}/mi-cuenta/wpf-delete-account/`;
+    Linking.openURL(url);
+  }
+
   render() {
     const { userProfile, navigation, currency, changeCurrency } = this.props;
     const user = userProfile.user || {};
@@ -178,6 +185,13 @@ class UserProfile extends PureComponent {
               );
             })}
           </View>
+
+          {userProfile.user && (
+          <TouchableOpacity style={btnDeletestyles.button} onPress={this.handlePress}>
+            <Text  style={btnDeletestyles.text}>Borrar mi cuenta</Text>
+          </TouchableOpacity>
+          )}
+          
         </ScrollView>
 
         <ModalBox ref={c => (this.currencyPicker = c)}>
@@ -216,3 +230,19 @@ export default connect(
   null,
   mergeProps,
 )(withTheme(UserProfile));
+
+const btnDeletestyles = StyleSheet.create({
+  button: {
+    alignItems: 'left',
+    justifyContent: 'left',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 4,
+  },
+  text: {
+    fontSize: 16,
+    lineHeight: 21,
+    letterSpacing: 0.25,
+    color: '#fe0000',
+  },
+});
